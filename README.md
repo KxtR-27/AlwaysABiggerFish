@@ -63,8 +63,27 @@ Asset list will be updated as assets are added to the repo.
 - Background image is from [this 2D Background pack](https://craftpix.net/freebies/free-underwater-world-pixel-art-backgrounds/) on Craftpix.
 - Music TBD.
 
+| Asset | Attribution | Usage |
+|-------|-------------|-------|
+|       |             |       |
+
 ## Milestones
-...
+1. Set up the In-game scene with a backdrop and a (not yet functional) Player Sprite.
+2. Implement keyboard controls to move the player sprite.
+3. Enhance player sprite physics.
+   i. Instead of stopping instantly when no keys are pressed, the sprite should drift to a stop.
+   ii. Make the sprite's image face in the direction it is moving.
+   iii. Flip the sprite horizontally when it would normally rotate upside-down
+4. Implement a Fish Sprite
+   i. Connect "size" used for eating
+   ii. Set up Fish Sprite collisions with Player Sprite. Function can be empty.
+   iii. Make Fish Sprites `CONTINUE` offscreen and despawn a short time after leaving it.
+5. Implement a BasicFish
+   i. Make it move sideways from either end of the screen across to the other end.
+   ii. Confirm that it despawns after leaving the screen.
+   iii. Go back to Fish Sprite and add collision code detailed in the Sprite List for "Collision Behavior"
+6. Add more images and sizes to randomly initialize BasicFish to create variety.  
+   -> A pufferfish, for example, which would be bigger than a minnow. Both are still BasicFish.
 
 ## Multi-State Considerations
 ...
