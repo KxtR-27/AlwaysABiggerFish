@@ -70,6 +70,7 @@ Asset list will be updated as assets are added to the repo.
 | <img src="assets/backdrop.png" width="100"><br>`backdrop.png` | [Image](https://craftpix.net/freebies/free-underwater-world-pixel-art-backgrounds/) from [Craftpix.net](https://craftpix.net/) | A background image for the game scenes. |
 
 ## Milestones
+### Satisfactory for Submission
 ~~1. Set up the In-game scene with a backdrop and a (not yet functional) Player Sprite.~~  
 2. Player Sprite  
    i. Keyboard control  
@@ -117,6 +118,14 @@ Asset list will be updated as assets are added to the repo.
     iv. Game over sound  
     v. ambient sounds?
 16. TBD UI details
+
+### Extra Ideas
+1. Different fish presets have unique sounds
+2. Weight the random preset algorithm to favor bigger fish as the player's size grows
+3. Particle effects?
+4. Game Over overlay in In-game scene. Lets players view the round's details before returning to Main Menu.
+5. Joystick support
+6. Stamina mechanic? (can sprint for short periods)
 
 ## Multi-State Considerations
 The game runs the Main Menu scene. 
