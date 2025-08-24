@@ -65,12 +65,12 @@ Asset list will be updated as assets are added to the repo.
 - Background image is from [this 2D Background pack](https://craftpix.net/freebies/free-underwater-world-pixel-art-backgrounds/) on Craftpix.
 - Music TBD.
 
-| Asset | Attribution | Usage |
-|-------|-------------|-------|
-|       |             |       |
+| Asset                                                         | Attribution                                                                                                                    | Usage                                   |
+|---------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------|
+| <img src="assets/backdrop.png" width="100"><br>`backdrop.png` | [Image](https://craftpix.net/freebies/free-underwater-world-pixel-art-backgrounds/) from [Craftpix.net](https://craftpix.net/) | A background image for the game scenes. |
 
 ## Milestones
-1. Set up the In-game scene with a backdrop and a (not yet functional) Player Sprite.
+~~1. Set up the In-game scene with a backdrop and a (not yet functional) Player Sprite.~~  
 2. Player Sprite  
    i. Keyboard control  
    ii. Drifting motion behavior
