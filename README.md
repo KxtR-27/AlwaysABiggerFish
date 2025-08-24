@@ -12,10 +12,10 @@ The player must eat fish that are smaller than them and avoid *being eaten* by f
 When the player eats (collides with and deletes) a smaller fish, their size increases slightly depending upon the size of what they ate.
 Likewise, when the player is eaten (collides with and *gets* deleted), the game is immediately over.
 
-The player's goal is to reach the biggest size they can within a 30-second[^1] round.
+The player's goal is to reach the biggest size they can within a 30-second\* round.
 When the round is over--either by running out of time or by getting eaten--return to title screen.
 
-[^1]: subject to change.
+###### \*subject to change.
 
 ## List of Assets: Sprites
 | Sprite Subclass          | Visual Elements                                                                                                                                                   | Animation Details                                                                                         | Lifespan                                                                | Movement                                                                                                                                              | Boundary Behavior             | Collision Behavior                                                                                                                                                            |
@@ -69,21 +69,55 @@ Asset list will be updated as assets are added to the repo.
 
 ## Milestones
 1. Set up the In-game scene with a backdrop and a (not yet functional) Player Sprite.
-2. Implement keyboard controls to move the player sprite.
-3. Enhance player sprite physics.
-   i. Instead of stopping instantly when no keys are pressed, the sprite should drift to a stop.
-   ii. Make the sprite's image face in the direction it is moving.
-   iii. Flip the sprite horizontally when it would normally rotate upside-down
-4. Implement a Fish Sprite
-   i. Connect "size" used for eating
-   ii. Set up Fish Sprite collisions with Player Sprite. Function can be empty.
-   iii. Make Fish Sprites `CONTINUE` offscreen and despawn a short time after leaving it.
-5. Implement a BasicFish
-   i. Make it move sideways from either end of the screen across to the other end.
-   ii. Confirm that it despawns after leaving the screen.
-   iii. Go back to Fish Sprite and add collision code detailed in the Sprite List for "Collision Behavior"
-6. Add more images and sizes to randomly initialize BasicFish to create variety.  
-   -> A pufferfish, for example, which would be bigger than a minnow. Both are still BasicFish.
+2. Player Sprite  
+   i. Keyboard control  
+   ii. Drifting motion behavior
+3. BasicFish, and by extension, FishSprite  
+   i. Create trigger for a Fish Sprite to despawn off-screen  
+   ii. Make BasicFish move horizontally past the edge of the screen  
+   iii. Spawn at random y-levels at regular intervals with a variable speed also applied
+5. Fish Sprite collision logic  
+   i. If player is bigger than the BasicFish, delete the BasicFish and increase player size  
+   ii. If BasicFish is bigger, delete Player Sprite and trigger a game over  
+   iii. Verify behavior with BasicFish
+6. Add "presets" for BasicFish  
+   i. An image, a speed range, and a size.  
+   ii. Examples include a pufferfish, an orca, an angelfish, etc.
+7. Modify BasicFish spawning logic to randomly choose a preset
+8. Create Bird presets mentioned in document  
+   i. Extend Fish Sprite to use custom movement logic  
+   ii. Make the Bird come in from the top, swoop into the water, and continue swoop up off the edge.  
+   iii. Collision logic is handled by Fish Sprite
+9. Create Crustacean presets mentioned in document  
+   i. Extend Fish Sprite to use custom movement logic  
+   ii. Make the crustacean scuttle in from the bottom edge, perhaps move sideways a short distance several times, and then scuttle back off the bottom edge.  
+   iii. Collision logic is handled by Fish Sprite
+10. Create Collectibles mentioned in document  
+   i. Quite simply, move down from the top edge and despawn past the bottom edge  
+   ii. Implement collision logic to increase player size  
+   iii. Make them spawn rarely and at random x-positions
+11. Add size and timer labels, complete with timer that exits the program when depleted
+12. Add size increase indicators
+13. Create Main Menu scene  
+    i. Quit button to exit program  
+    ii. Start button to run the In-game scene  
+    iii. Best score and cause of death labels  
+    iv. When the in-game scene ends, return size and cause of death to the Main Menu, which updates both values if this is a new best run
+14. Animations  
+    i. Make Player Sprite look in movement direction, flipping the image horizontally when the fish would look upside down  
+    ii. Make Birds point in movement direction  
+    iii. Make collectibles slowly spin  
+    iv. Make crustaceans rotate a little, back and forth, for a scuttling effect.
+15. Sounds  
+    i. Eating sound  
+    ii. Collectible sound  
+    iii. Button click sound  
+    iv. Game over sound  
+    v. ambient sounds?
+16. TBD UI details
 
 ## Multi-State Considerations
-...
+The game runs the Main Menu scene. 
+From here, the Main Menu can exit the program or begin an In-game scene. 
+When the In-game scene exits, the Main Menu scene appears again.
+This behavior will loop until the quit button is pressed.
