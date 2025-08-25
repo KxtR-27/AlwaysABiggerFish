@@ -72,15 +72,17 @@ Asset list will be updated as assets are added to the repo.
 
 ## Milestones
 ### Satisfactory for Submission
-<ol type="1">
-   <li>Set up the In-game scene with a backdrop and a (not yet functional) Player Sprite.</li>
-   <li>
-      Player Sprite
-      <ol>
-         <li>Keyboard control</li>
-         <li>Drifting motion behavior</li>
-      </ol>
-   </li>
+<ol>
+   <del>
+      <li>Set up the In-game scene with a backdrop and a (not yet functional) Player Sprite.</li>
+      <li>
+         Player Sprite
+         <ol>
+            <li>Keyboard control</li>
+            <li>Drifting motion behavior</li>
+         </ol>
+      </li>
+   </del>
    <li>
       BasicFish, and by extension, FishSprite
       <ol>
