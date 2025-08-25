@@ -1,29 +1,36 @@
-import pygame, simpleGE, inputActions as Inputs
-
+import simpleGE
+from utils import InputActions
+from utils import BoundaryLogic as Bounds
 
 class PlayerSprite(simpleGE.Sprite):
     def __init__(self, scene):
         super().__init__(scene)
         
-        self.speed = 5
-        self.gameSize = 40
+        self.speed = 3
+        self.gameSize = 33
+        self.driftReductionFactor = 0.9
 
         self.setImage("assets/player.png")
         self.setSize(self.gameSize, self.gameSize)
+        self.setBoundAction(self.CONTINUE)
+        
     
     def process(self):
         # drifting to a stop
-        self.dx *= 0.9
-        self.dy *= 0.9
+        self.dx *= self.driftReductionFactor
+        self.dy *= self.driftReductionFactor
 
-        if Inputs.isActionPressed(self, Inputs.Actions.MOVE_LEFT):
+        if InputActions.isActionPressed(self, InputActions.MOVE_LEFT):
             self.dx = -self.speed
-        if Inputs.isActionPressed(self, Inputs.Actions.MOVE_RIGHT):
+        if InputActions.isActionPressed(self, InputActions.MOVE_RIGHT):
             self.dx = self.speed
-        if Inputs.isActionPressed(self, Inputs.Actions.MOVE_UP):
+        if InputActions.isActionPressed(self, InputActions.MOVE_UP):
             self.dy = -self.speed
-        if Inputs.isActionPressed(self, Inputs.Actions.MOVE_DOWN):
+        if InputActions.isActionPressed(self, InputActions.MOVE_DOWN):
             self.dy = self.speed
+        
+        # custom boundary action
+        Bounds.ifAtBoundThenForceAway(self)
 
 
 class GameScene(simpleGE.Scene):

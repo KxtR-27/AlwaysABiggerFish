@@ -80,6 +80,7 @@ Asset list will be updated as assets are added to the repo.
          <ol>
             <li>Keyboard control</li>
             <li>Drifting motion behavior</li>
+            <li>Custom boundary action to force away from edge</li>
          </ol>
       </li>
    </del>
