@@ -68,6 +68,7 @@ Asset list will be updated as assets are added to the repo.
 | Asset                                                         | Attribution                                                                                                                    | Usage                                   |
 |---------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------|
 | <img src="assets/backdrop.png" width="100"><br>`backdrop.png` | [Image](https://craftpix.net/freebies/free-underwater-world-pixel-art-backgrounds/) from [Craftpix.net](https://craftpix.net/) | A background image for the game scenes. |
+| <img src="assets/player.png" width="40"><br>`player.png`      | Icon made by [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](https://www.flaticon.com/)            | Icon used for Player Sprite.            |
 
 ## Milestones
 ### Satisfactory for Submission
