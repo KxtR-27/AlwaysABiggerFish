@@ -10,7 +10,7 @@ class Fish(simpleGE.Sprite):
         ON_SCREEN = enum.auto()
         AFTER_SCREEN = enum.auto()
 
-    def __init__(self, scene: simpleGE.Scene, gameSize: int, image: str):
+    def __init__(self, scene: simpleGE.Scene, gameSize: int, speed, image: str):
         super().__init__(scene)
 
         self.gameSize = gameSize
@@ -18,6 +18,7 @@ class Fish(simpleGE.Sprite):
         self.setImage(image)
         self.setSize(gameSize, gameSize)
         self.setBoundAction(self.CONTINUE)
+        self.dx = speed
         
         self.state = Fish._States.BEFORE_SCREEN
     
@@ -33,9 +34,9 @@ class Fish(simpleGE.Sprite):
 
 
 class BasicFish(Fish):
-    def __init__(self: Fish, scene: simpleGE.Scene, gameSize: int, image: str):
-        super().__init__(scene, gameSize, image)
-        self.dx = random.randint(2, 6)
+    def __init__(self: Fish, scene: simpleGE.Scene, gameSize: int, speed, image: str):
+        super().__init__(scene, gameSize, speed, image)
+        self.dx = speed
 
 
 class PlayerFish(simpleGE.Sprite):
@@ -49,7 +50,11 @@ class PlayerFish(simpleGE.Sprite):
         self.setImage("assets/player.png")
         self.setSize(self.gameSize, self.gameSize)
         self.setBoundAction(self.CONTINUE)
-        
+    
+    def updateGameSize(self, addend: int):
+        self.gameSize += addend
+        self.setSize(self.gameSize, self.gameSize)
+
     
     def process(self):
         # drifting to a stop
@@ -77,24 +82,40 @@ class GameScene(simpleGE.Scene):
         self.setImage("assets/backdrop.png")
 
         self.player = PlayerFish(self)
-        self.basicFishes = []
+        self.fishes = []
 
         for _ in range (5):
-            self.spawnBasicFish()
+            self.spawnButterflyFish()
+        self.spawnShark()
+        
 
         self.sprites = [
             self.player,
-            self.basicFishes
+            self.fishes
         ]
     
     def process(self):
-        for basicFish in self.basicFishes:
-            if basicFish.state is Fish._States.AFTER_SCREEN:
-                self.basicFishes.remove(basicFish)
+        for fish in self.fishes:
+            if fish.state is Fish._States.AFTER_SCREEN:
+                self.fishes.remove(fish)
                 print("Fish removed!")
+            
+            if fish.collidesWith(self.player):
+                if fish.gameSize >= self.player.gameSize:
+                    print(f"You died! Your size was: {self.player.gameSize}")
+                    self.stop()
+                else:
+                    fish.x = -1000
+                    self.player.updateGameSize(fish.gameSize * 0.25)
     
-    def spawnBasicFish(self):
-        fishToSpawn = BasicFish(self, 30, "assets/basicfish_butterfly.png")
+    def spawnButterflyFish(self):
+        self._spawnBasicFish(30, random.randint(2, 6), "assets/basicfish_butterfly.png")
+    
+    def spawnShark(self):
+        self._spawnBasicFish(100, random.randint(8, 15), "assets/basicfish_shark.png")
+
+    def _spawnBasicFish(self, gameSize, speed, image):
+        fishToSpawn = BasicFish(self, gameSize, speed, image)
         spawnOnLeftSide = random.randint(0, 1)
 
         if spawnOnLeftSide:
@@ -104,7 +125,7 @@ class GameScene(simpleGE.Scene):
             fishToSpawn.dx *= -1
         
         fishToSpawn.y = random.randint(0, self.screen.get_height())
-        self.basicFishes.append(fishToSpawn)
+        self.fishes.append(fishToSpawn)
 
 
 def main():
