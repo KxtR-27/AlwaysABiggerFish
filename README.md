@@ -71,53 +71,100 @@ Asset list will be updated as assets are added to the repo.
 
 ## Milestones
 ### Satisfactory for Submission
-~~1. Set up the In-game scene with a backdrop and a (not yet functional) Player Sprite.~~  
-2. Player Sprite  
-   i. Keyboard control  
-   ii. Drifting motion behavior
-3. BasicFish, and by extension, FishSprite  
-   i. Create trigger for a Fish Sprite to despawn off-screen  
-   ii. Make BasicFish move horizontally past the edge of the screen  
-   iii. Spawn at random y-levels at regular intervals with a variable speed also applied
-5. Fish Sprite collision logic  
-   i. If player is bigger than the BasicFish, delete the BasicFish and increase player size  
-   ii. If BasicFish is bigger, delete Player Sprite and trigger a game over  
-   iii. Verify behavior with BasicFish
-6. Add "presets" for BasicFish  
-   i. An image, a speed range, and a size.  
-   ii. Examples include a pufferfish, an orca, an angelfish, etc.
-7. Modify BasicFish spawning logic to randomly choose a preset
-8. Create Bird presets mentioned in document  
-   i. Extend Fish Sprite to use custom movement logic  
-   ii. Make the Bird come in from the top, swoop into the water, and continue swoop up off the edge.  
-   iii. Collision logic is handled by Fish Sprite
-9. Create Crustacean presets mentioned in document  
-   i. Extend Fish Sprite to use custom movement logic  
-   ii. Make the crustacean scuttle in from the bottom edge, perhaps move sideways a short distance several times, and then scuttle back off the bottom edge.  
-   iii. Collision logic is handled by Fish Sprite
-10. Create Collectibles mentioned in document  
-   i. Quite simply, move down from the top edge and despawn past the bottom edge  
-   ii. Implement collision logic to increase player size  
-   iii. Make them spawn rarely and at random x-positions
-11. Add size and timer labels, complete with timer that exits the program when depleted
-12. Add size increase indicators
-13. Create Main Menu scene  
-    i. Quit button to exit program  
-    ii. Start button to run the In-game scene  
-    iii. Best score and cause of death labels  
-    iv. When the in-game scene ends, return size and cause of death to the Main Menu, which updates both values if this is a new best run
-14. Animations  
-    i. Make Player Sprite look in movement direction, flipping the image horizontally when the fish would look upside down  
-    ii. Make Birds point in movement direction  
-    iii. Make collectibles slowly spin  
-    iv. Make crustaceans rotate a little, back and forth, for a scuttling effect.
-15. Sounds  
-    i. Eating sound  
-    ii. Collectible sound  
-    iii. Button click sound  
-    iv. Game over sound  
-    v. ambient sounds?
-16. TBD UI details
+<ol type="1">
+   <li>Set up the In-game scene with a backdrop and a (not yet functional) Player Sprite.</li>
+   <li>
+      Player Sprite
+      <ol>
+         <li>Keyboard control</li>
+         <li>Drifting motion behavior</li>
+      </ol>
+   </li>
+   <li>
+      BasicFish, and by extension, FishSprite
+      <ol>
+         <li>Create trigger for a Fish Sprite to despawn off-screen</li>
+         <li>Make BasicFish move horizontally past the edge of the screen</li>
+         <li>Spawn at random y-levels at regular intervals with a variable speed also applied</li>
+      </ol>
+   </li>
+   <li>
+      Fish Sprite collision logic
+      <ol>
+         <li>If player is bigger than the BasicFish, delete the BasicFish and increase player size</li>
+         <li>If BasicFish is bigger, delete Player Sprite and trigger a game over</li>
+         <li>Verify behavior with BasicFish</li>
+      </ol>
+   </li>
+   <li>
+      Add "presets" for BasicFish
+      <ol>
+         <li>An image, a speed range, and a size.</li>
+         <li>Examples include a pufferfish, an orca, an angelfish, etc.</li>
+         <li>Modify BasicFish spawning logic to randomly choose a preset</li>
+      </ol>
+   </li>
+   <li>
+      Create Bird presets mentioned in document
+      <ol>
+         <li>Extend Fish Sprite to use custom movement logic</li>
+         <li>Make the Bird come in from the top, swoop into the water, and continue swoop up off the edge.</li>
+         <li>Collision logic is handled by Fish Sprite</li>
+         <li>Add random spawning mechanic</li>
+      </ol>
+   </li>
+   <li>
+      Create Crustacean presets mentioned in document
+      <ol>
+         <li>Extend Fish Sprite to use custom movement logic</li>
+         <li>Make the crustacean scuttle in from the bottom edge, perhaps move sideways a short distance several times, and then scuttle back off the bottom edge.</li>
+         <li>Collision logic is handled by Fish Sprite</li>
+         <li>Add random spawning mechanic</li>
+      </ol>
+   </li>
+   <li>
+      Create Collectibles mentioned in document
+      <ol>
+         <li>Quite simply, move down from the top edge and despawn past the bottom edge</li>
+         <li>Implement collision logic to increase player size</li>
+         <li>Make them spawn rarely and at random x-positions</li>
+      </ol>
+   </li>
+   <li>Add size and timer labels, complete with timer that exits the program when depleted</li>
+   <li>Add size increase indicators</li>
+   <li>
+      Create Main Menu scene
+      <ol>
+         <li>Quit button to exit program</li>
+         <li>Start button to run the In-game scene</li>
+         <li>Best score and cause of death labels</li>
+         <li>When the in-game scene ends, return size and cause of death to the Main Menu, which updates both values if this is a new best run</li>
+      </ol>
+   </li>
+   <li>
+      Animations
+      <ol>
+         <li>Make Player Sprite look in movement direction, flipping the image horizontally when the fish would look upside down</li>
+         <li>
+            Make Birds point in movement direction. 
+            Using `moveAngle()` and `forward()` might be helpful here.
+         </li>
+         <li>Make collectibles slowly spin</li>
+         <li>Make crustaceans rotate a little, back and forth, for a scuttling effect.</li>
+      </ol>
+   </li>
+   <li>
+      Sounds
+      <ol>
+         <li>Eating sound</li>
+         <li>Collectible sound</li>
+         <li>Button click sound</li>
+         <li>Game over sound</li>
+         <li>Ambient sounds?</li>
+      </ol>
+   </li>
+   <li>TBD UI details</li>
+</ol>
 
 ### Extra Ideas
 1. Different fish presets have unique sounds
