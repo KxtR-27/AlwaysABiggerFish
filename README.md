@@ -65,10 +65,11 @@ Asset list will be updated as assets are added to the repo.
 - Background image is from [this 2D Background pack](https://craftpix.net/freebies/free-underwater-world-pixel-art-backgrounds/) on Craftpix.
 - Music TBD.
 
-| Asset                                                         | Attribution                                                                                                                    | Usage                                   |
-|---------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------|
-| <img src="assets/backdrop.png" width="100"><br>`backdrop.png` | [Image](https://craftpix.net/freebies/free-underwater-world-pixel-art-backgrounds/) from [Craftpix.net](https://craftpix.net/) | A background image for the game scenes. |
-| <img src="assets/player.png" width="40"><br>`player.png`      | Icon made by [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](https://www.flaticon.com/)            | Icon used for Player Sprite.            |
+| Asset                                                                      | Attribution                                                                                                                    | Usage                                   |
+|----------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------|
+| <img src="assets/backdrop.png" width="100"><br>`backdrop.png`              | [Image](https://craftpix.net/freebies/free-underwater-world-pixel-art-backgrounds/) from [Craftpix.net](https://craftpix.net/) | A background image for the game scenes. |
+| <img src="assets/player.png" width="40"><br>`player.png`                   | Icon made by [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](https://www.flaticon.com/)            | Icon used for Player Sprite.            |
+| <img src="assets/basicfish_butterfly.png" width="40"><br>`player.png`      | Icon made by [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](https://www.flaticon.com/)            | Icon used for Player Sprite.            |
 
 ## Milestones
 ### Satisfactory for Submission
@@ -83,15 +84,15 @@ Asset list will be updated as assets are added to the repo.
             <li>Custom boundary action to force away from edge</li>
          </ol>
       </li>
+      <li>
+         BasicFish, and by extension, FishSprite
+         <ol>
+            <li>Create trigger for a Fish Sprite to despawn off-screen</li>
+            <li>Make BasicFish move horizontally past the edge of the screen</li>
+            <li>Spawn at random y-levels at regular intervals with a variable speed also applied</li>
+         </ol>
+      </li>
    </del>
-   <li>
-      BasicFish, and by extension, FishSprite
-      <ol>
-         <li>Create trigger for a Fish Sprite to despawn off-screen</li>
-         <li>Make BasicFish move horizontally past the edge of the screen</li>
-         <li>Spawn at random y-levels at regular intervals with a variable speed also applied</li>
-      </ol>
-   </li>
    <li>
       Fish Sprite collision logic
       <ol>
