@@ -65,12 +65,13 @@ Asset list will be updated as assets are added to the repo.
 - Background image is from [this 2D Background pack](https://craftpix.net/freebies/free-underwater-world-pixel-art-backgrounds/) on Craftpix.
 - Music TBD.
 
-| Asset                                                                                   | Attribution                                                                                                                    | Usage                                   |
-|-----------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------|
-| <img src="assets/backdrop.png" width="100"><br>`backdrop.png`                           | [Image](https://craftpix.net/freebies/free-underwater-world-pixel-art-backgrounds/) from [Craftpix.net](https://craftpix.net/) | A background image for the game scenes. |
-| <img src="assets/player.png" width="40"><br>`player.png`                                | Icon made by [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](https://www.flaticon.com/)            | Icon used for Player Sprite.            |
-| <img src="assets/basicfish_butterfly.png" width="40"><br>`basicfish_butterfly.png`      | Icon made by [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](https://www.flaticon.com/)            | Icon used for Butterfly Fish.           |
-| <img src="assets/basicfish_shark.png" width="40"><br>`basicfish_shark.png`              | Icon made by [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](https://www.flaticon.com/)            | Icon used for Shark.                    |
+| Asset                                                                                   | Attribution                                                                                                                    | Usage                                       |
+|-----------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------|
+| <img src="assets/backdrop.png" width="100"><br>`backdrop.png`                           | [Image](https://craftpix.net/freebies/free-underwater-world-pixel-art-backgrounds/) from [Craftpix.net](https://craftpix.net/) | A background image for the game scenes.     |
+| <img src="assets/fish_butterfly.png" width="40"><br>`basicfish_butterfly.png`           | Icon made by [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](https://www.flaticon.com/)            | Icon used for Butterfly Fish.               |
+| <img src="assets/fish_shark.png" width="40"><br>`basicfish_shark.png`                   | Icon made by [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](https://www.flaticon.com/)            | Icon used for Shark.                        |
+| <img src="assets/player.png" width="40"><br>`player.png`                                | Icon made by [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](https://www.flaticon.com/)            | Icon used for Player Sprite.                |
+| <img src="assets/placeholder.png" width="40"><br>`placeholder.png`                      | Icon made by [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](https://www.flaticon.com/)            | Icon used internally for uncustomized fish. |
 
 ## Milestones
 ### Satisfactory for Submission
@@ -101,16 +102,16 @@ Asset list will be updated as assets are added to the repo.
             <li>Verify behavior with BasicFish</li>
          </ol>
       </li>
+      <li>
+         Add "presets" for BasicFish
+         <ol>
+            <li>An image, a speed range, and a size.</li>
+            <li>Examples include a pufferfish, an orca, an angelfish, etc.</li>
+            <li>Modify BasicFish spawning logic to randomly choose a preset</li>
+            <li>Recycle "removed" fishes via respawning/resetting</li>
+         </ol>
+      </li>
    </del>
-   <li>
-      Add "presets" for BasicFish
-      <ol>
-         <li>An image, a speed range, and a size.</li>
-         <li>Examples include a pufferfish, an orca, an angelfish, etc.</li>
-         <li>Modify BasicFish spawning logic to randomly choose a preset</li>
-         <li>Recycle "removed" fishes via respawning/resetting</li>
-      </ol>
-   </li>
    <li>
       Create Bird presets mentioned in document
       <ol>
