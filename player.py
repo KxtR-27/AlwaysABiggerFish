@@ -25,7 +25,7 @@ class Player(Fish):
         # custom boundary action
         BoundaryLogic.ifAtBoundThenForceAway(self)
     
-    def increasePower(self, addend: int):
+    def growBy(self, addend: int):
         self.setImage("assets/player.png")
         self.power += addend
         self.setSize(self.power, self.power)

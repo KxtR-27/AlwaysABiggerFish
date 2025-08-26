@@ -10,6 +10,8 @@ class Preset:
         self.imagePath = imagePath
 
 class FishPresets(Enum):
+    # TODO: Crop icons to create more accurate hitboxes
+
     PLAYER =    Preset("Player", speedMin=4, speedMax=4, power=30, imagePath="assets/player.png")
     BUTTERFLY = Preset("Butterfly Fish", speedMin=2, speedMax=6, power=25, imagePath="assets/fish_butterfly.png")
     SHARK =     Preset("Shark", speedMin=4, speedMax=8, power=100, imagePath="assets/fish_shark.png")

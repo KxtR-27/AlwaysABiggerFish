@@ -4,6 +4,9 @@ from fish import *
 from player import Player
 
 class GameScene(simpleGE.Scene):
+    FISH_CONTINUE_TRESHOLD = 100
+    PLAYER_GROWTH_FACTOR = 0.05
+
     def __init__(self, size=...):
         super().__init__(size)
 
@@ -29,19 +32,24 @@ class GameScene(simpleGE.Scene):
     
     def runPlayerCollisionCheck(self, fish: Fish):
         if fish.collidesWith(self.player):
+            
             print(f"Collision! [{self.player.name}: {self.player.power}] [{fish.name}: {fish.power}]")
+
             if fish.power >= self.player.power:
                 exit(0)
             else:
                 fish.reset()
-                self.player.increasePower(fish.power * 0.05)
+                self.player.growBy(fish.power * GameScene.PLAYER_GROWTH_FACTOR)
     
     def resetIfNeeded(self, fish: Fish):
         if self.fishHasPassedFarEdge(fish):
             fish.reset()
         
     def fishHasPassedFarEdge(self, fish: Fish):
-        return (fish.dx > 0 and fish.x > fish.screenWidth + 100) or (fish.dx < 0 and fish.x < -100)
+        passedRightEdge = fish.dx > 0 and fish.x > fish.screenWidth + GameScene.FISH_CONTINUE_TRESHOLD
+        passedLeftEdge = fish.dx < 0 and fish.x < -GameScene.FISH_CONTINUE_TRESHOLD
+
+        return passedRightEdge or passedLeftEdge
 
 
 def main():
