@@ -4,7 +4,8 @@ This project is for the "First Game" assignment in CS 439.
 The description website URL directs to the Canvas assignment page. 
 If you have access, that is.
 
-**This program requires the user to have `pygame` already installed.**
+**This program requires the user to have `pygame` already installed.**  
+###### _If you're having trouble installing pygame via with Python 3.12 or later, use Python 3.11 to `pip install pygame`._
 
 ## Overview
 Always A Bigger Fish is an arcade-style game in which the player controls a small fish. 
