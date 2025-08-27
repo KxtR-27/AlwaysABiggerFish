@@ -6,12 +6,15 @@ class Player(Fish):
         super().__init__(scene)
 
         self.applyPreset(FishPresets.PLAYER)
-        self.driftReductionFactor = 0.9
+        self.DRAG_FACTOR = 0.9
+
+        self.MAX_IFRAMES = 5
+        self.remainingIFrames = 0
 
     def process(self):
         # drifting to a stop
-        self.dx *= self.driftReductionFactor
-        self.dy *= self.driftReductionFactor
+        self.dx *= self.DRAG_FACTOR
+        self.dy *= self.DRAG_FACTOR
 
         if InputActions.isActionPressed(self, InputActions.MOVE_LEFT):
             self.dx = -self.swimSpeed
@@ -24,8 +27,18 @@ class Player(Fish):
         
         # custom boundary action
         BoundaryLogic.ifAtBoundThenForceAway(self)
+
+        if self.remainingIFrames > 0:
+            self.remainingIFrames -= 1
+            # print(f"remaining iframes: {self.remainingIFrames}/{self.MAX_IFRAMES}")
     
     def growBy(self, addend: int):
         self.setImage("assets/player.png")
         self.power += addend
         self.setSize(self.power, self.power)
+    
+    def isInvincible(self):
+        return self.remainingIFrames > 0
+    
+    def triggerIFrames(self):
+        self.remainingIFrames = self.MAX_IFRAMES

@@ -4,6 +4,7 @@ from fish import *
 from player import Player
 
 class GameScene(simpleGE.Scene):
+    NUM_OF_NPC_FISHES = 10
     FISH_CONTINUE_TRESHOLD = 100
     PLAYER_GROWTH_FACTOR = 0.05
 
@@ -17,7 +18,8 @@ class GameScene(simpleGE.Scene):
         self.player.position = (self.player.screenWidth / 2, self.player.screenHeight / 2)
 
         self.fishes = []
-        for _ in range(10):
+
+        for _ in range(GameScene.NUM_OF_NPC_FISHES):
             self.fishes.append(Fish(self))
 
         self.sprites = [
@@ -30,14 +32,20 @@ class GameScene(simpleGE.Scene):
             self.runPlayerCollisionCheck(fish)
             self.resetIfNeeded(fish)
     
+    # TODO: Debounce fish that were "eaten" using player i-frames
+    #   When you eat a fish, it's moved off-screen and changed to a "new" fish.
+    #   Sometimes, in a frame drop for example, the fish you "ate" changes first.
+    #   If the size of the "new" fish is greater than the size of the player, 
+    #   this causes an instant game over.
     def runPlayerCollisionCheck(self, fish: Fish):
-        if fish.collidesWith(self.player):
-            
-            print(f"Collision! [{self.player.name}: {self.player.power}] [{fish.name}: {fish.power}]")
+        if fish.collidesWith(self.player) and not self.player.isInvincible():
+
+            # print(f"Collision! [{self.player.name}: {self.player.power}] [{fish.name}: {fish.power}]")
 
             if fish.power >= self.player.power:
                 exit(0)
             else:
+                self.player.triggerIFrames()
                 fish.reset()
                 self.player.growBy(fish.power * GameScene.PLAYER_GROWTH_FACTOR)
     
