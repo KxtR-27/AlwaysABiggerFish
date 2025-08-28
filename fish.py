@@ -5,6 +5,9 @@ from utils import ImageManip
 
 
 class Fish(simpleGE.Sprite):
+    # how far off-screen can fish continue before resetting
+    FISH_CONTINUE_THRESHOLD = 200
+
     def __init__(self, scene) -> None:
         super().__init__(scene)
         self.setBoundAction(self.CONTINUE)
@@ -20,15 +23,26 @@ class Fish(simpleGE.Sprite):
 
         self.reset()
 
+
     def reset(self):
         self.applyRandomPreset()
         self.shufflePosition()
 
+    def resetIfNeeded(self):
+        if self.hasPassedFarEdge():
+            self.reset()
+
+    def hasPassedFarEdge(self):
+        passedRightEdge = (
+            self.dx > 0 and self.x > self.screenWidth + Fish.FISH_CONTINUE_THRESHOLD
+        )
+        passedLeftEdge = self.dx < 0 and self.x < -Fish.FISH_CONTINUE_THRESHOLD
+
+        return passedRightEdge or passedLeftEdge
+
+
     def applyRandomPreset(self):
         self.applyPreset(FishPresets.randomPreset())
-
-    def applyPreset(self, preset: FishPresets):
-        preset = preset.value
 
     def applyPreset(self, preset: Preset) -> None:
         self.name = preset.name
@@ -39,8 +53,6 @@ class Fish(simpleGE.Sprite):
         self.power = preset.power
         ImageManip.normalizeSizeToPower(self)
 
-        print(f"I'm a {self.name} now!")
-
 
     def shufflePosition(self) -> None:
         startFromLeft = random.randint(0, 1)
@@ -49,7 +61,6 @@ class Fish(simpleGE.Sprite):
         self.y = random.randint(0, self.screenHeight)
 
         self.swim(startFromLeft)
-
 
     def swim(self, startFromLeft: bool) -> None:
         if startFromLeft:

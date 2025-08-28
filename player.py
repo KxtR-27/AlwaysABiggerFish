@@ -1,4 +1,5 @@
-from fish import *
+from fish import Fish
+from presets import FishPresets
 from utils import *
 
 
@@ -35,6 +36,7 @@ class Player(Fish):
             self.remainingIFrames -= 1
             # print(f"remaining iframes: {self.remainingIFrames}/{self.MAX_IFRAMES}")
 
+
     def growBy(self, addend: int) -> None:
         self.setImage("assets/player.png")
         self.flipped = False
@@ -42,7 +44,6 @@ class Player(Fish):
         self.power += addend
         ImageManip.normalizeSizeToPower(self)
 
-        print(f"Size/Power: {self.power:2.2f} | Increased by: {addend:2.2f}")
 
     def isInvincible(self) -> bool:
         return self.remainingIFrames > 0
