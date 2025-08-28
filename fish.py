@@ -1,20 +1,31 @@
 import simpleGE, random
 from enum import Enum
+from utils import ImageManip
+
 
 class Preset:
-    def __init__(self, name: str, speedMin: float, speedMax: float, power: float, imagePath: str):
+    def __init__(
+        self, name: str, speedMin: float, speedMax: float, power: float, imagePath: str
+    ):
         self.name = name
         self.speedMin = speedMin
         self.speedMax = speedMax
         self.power = power
         self.imagePath = imagePath
 
+
 class FishPresets(Enum):
     # TODO: Crop icons to create more accurate hitboxes
 
-    PLAYER =    Preset("Player", speedMin=4, speedMax=4, power=30, imagePath="assets/player.png")
-    BUTTERFLY = Preset("Butterfly Fish", speedMin=1, speedMax=4, power=25, imagePath="assets/fish_butterfly.png")
-    SHARK =     Preset("Shark", speedMin=4, speedMax=8, power=100, imagePath="assets/fish_shark.png")
+    PLAYER = Preset(
+        "Player", speedMin=4, speedMax=4, power=30, imagePath="assets/player.png"
+    )
+    BUTTERFLY = Preset(
+        "Butterfly Fish", speedMin=2, speedMax=5, power=25, imagePath="assets/fish_butterfly.png",
+    )
+    SHARK = Preset(
+        "Shark", speedMin=4, speedMax=8, power=100, imagePath="assets/fish_shark.png"
+    )
 
     def randomFish():
         choice = random.choice(list(FishPresets))
@@ -37,8 +48,9 @@ class Fish(simpleGE.Sprite):
         self.setImage("assets/placeholder.png")
         self.setSize(50, 50)
 
+        self.flipped = False
+
         self.reset()
-    
 
     def reset(self):
         self.applyRandomPreset()
@@ -46,22 +58,22 @@ class Fish(simpleGE.Sprite):
 
     def applyRandomPreset(self):
         self.applyPreset(FishPresets.randomFish())
-    
+
     def applyPreset(self, preset: FishPresets):
         preset = preset.value
 
         self.name = preset.name
         self.swimSpeed = random.randint(preset.speedMin, preset.speedMax)
         self.setImage(preset.imagePath)
-        
+        self.flipped = False
+
         self.power = preset.power
-        self.setSize(self.power, self.power)
-    
+        ImageManip.normalizeSizeToPower(self)
 
     def shufflePosition(self):
         startFromLeft = random.randint(0, 1)
 
-        self.x = -100 if startFromLeft else self.screenWidth + 100  
+        self.x = -100 if startFromLeft else self.screenWidth + 100
         self.y = random.randint(0, self.screenHeight)
 
         self.swim(startFromLeft)
@@ -69,5 +81,7 @@ class Fish(simpleGE.Sprite):
     def swim(self, startFromLeft: bool):
         if startFromLeft:
             self.dx = self.swimSpeed
+            ImageManip.unflipFish(self)
         else:
             self.dx = -self.swimSpeed
+            ImageManip.flipFish(self)

@@ -1,6 +1,7 @@
 from fish import *
 from utils import *
 
+
 class Player(Fish):
     def __init__(self, scene):
         super().__init__(scene)
@@ -18,27 +19,33 @@ class Player(Fish):
 
         if InputActions.isActionPressed(self, InputActions.MOVE_LEFT):
             self.dx = -self.swimSpeed
+            ImageManip.flipFish(self)
         if InputActions.isActionPressed(self, InputActions.MOVE_RIGHT):
             self.dx = self.swimSpeed
+            ImageManip.unflipFish(self)
         if InputActions.isActionPressed(self, InputActions.MOVE_UP):
             self.dy = -self.swimSpeed
         if InputActions.isActionPressed(self, InputActions.MOVE_DOWN):
             self.dy = self.swimSpeed
-        
+
         # custom boundary action
         BoundaryLogic.ifAtBoundThenForceAway(self)
 
         if self.remainingIFrames > 0:
             self.remainingIFrames -= 1
             # print(f"remaining iframes: {self.remainingIFrames}/{self.MAX_IFRAMES}")
-    
+
     def growBy(self, addend: int):
         self.setImage("assets/player.png")
+        self.flipped = False
+
         self.power += addend
-        self.setSize(self.power, self.power)
-    
+        ImageManip.normalizeSizeToPower(self)
+
+        print(f"Size/Power: {self.power:2.2f} | Increased by: {addend:2.2f}")
+
     def isInvincible(self):
         return self.remainingIFrames > 0
-    
+
     def triggerIFrames(self):
         self.remainingIFrames = self.MAX_IFRAMES
