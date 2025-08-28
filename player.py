@@ -3,16 +3,16 @@ from utils import *
 
 
 class Player(Fish):
-    def __init__(self, scene):
+    def __init__(self, scene) -> None:
         super().__init__(scene)
 
-        self.applyPreset(FishPresets.PLAYER)
+        self.applyPreset(FishPresets.PLAYER.value)
         self.DRAG_FACTOR = 0.9
 
         self.MAX_IFRAMES = 5
         self.remainingIFrames = 0
 
-    def process(self):
+    def process(self) -> None:
         # drifting to a stop
         self.dx *= self.DRAG_FACTOR
         self.dy *= self.DRAG_FACTOR
@@ -35,7 +35,7 @@ class Player(Fish):
             self.remainingIFrames -= 1
             # print(f"remaining iframes: {self.remainingIFrames}/{self.MAX_IFRAMES}")
 
-    def growBy(self, addend: int):
+    def growBy(self, addend: int) -> None:
         self.setImage("assets/player.png")
         self.flipped = False
 
@@ -44,8 +44,8 @@ class Player(Fish):
 
         print(f"Size/Power: {self.power:2.2f} | Increased by: {addend:2.2f}")
 
-    def isInvincible(self):
+    def isInvincible(self) -> bool:
         return self.remainingIFrames > 0
 
-    def triggerIFrames(self):
+    def triggerIFrames(self) -> None:
         self.remainingIFrames = self.MAX_IFRAMES

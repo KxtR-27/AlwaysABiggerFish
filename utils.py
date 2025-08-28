@@ -9,7 +9,7 @@ class InputActions(Enum):
     MOVE_DOWN = [pygame.K_s, pygame.K_DOWN, pygame.K_KP1, pygame.K_KP2, pygame.K_KP3]
     MOVE_UP = [pygame.K_w, pygame.K_UP, pygame.K_KP7, pygame.K_KP8, pygame.K_KP9]
 
-    def isActionPressed(sprite: simpleGE.Sprite, action):
+    def isActionPressed(sprite: simpleGE.Sprite, action) -> int:
         keysPressed = 0
 
         for keybind in action.value:
@@ -28,7 +28,7 @@ class BoundaryLogic:
         DOWN = 90
         NOT_AT_BOUND = -1
 
-    def ifAtBoundThenForceAway(sprite: simpleGE.Sprite):
+    def ifAtBoundThenForceAway(sprite: simpleGE.Sprite) -> None:
         boundary = BoundaryLogic._whereIs(sprite)
 
         if boundary == BoundaryLogic._Boundaries.NOT_AT_BOUND:
@@ -36,7 +36,7 @@ class BoundaryLogic:
         else:
             BoundaryLogic._forceAwayFrom(sprite, boundary)
 
-    def _whereIs(sprite: simpleGE.Sprite):
+    def _whereIs(sprite: simpleGE.Sprite) -> _Boundaries:
 
         if sprite.x >= sprite.screenWidth:
             return BoundaryLogic._Boundaries.RIGHT
@@ -49,12 +49,12 @@ class BoundaryLogic:
         else:
             return BoundaryLogic._Boundaries.NOT_AT_BOUND
 
-    def _forceAwayFrom(sprite: simpleGE.Sprite, bound):
+    def _forceAwayFrom(sprite: simpleGE.Sprite, bound) -> None:
         sprite.addForce(5, bound.value)
 
 
 class ImageManip:
-    def normalizeSizeToPower(fish: simpleGE.Sprite):
+    def normalizeSizeToPower(fish: simpleGE.Sprite) -> None:
         aspectRatio = ImageManip._imageAspectRatio(fish)
 
         normalizedX = fish.power * aspectRatio[0]
@@ -62,7 +62,7 @@ class ImageManip:
 
         fish.setSize(normalizedX, normalizedY)
 
-    def _imageAspectRatio(fish: simpleGE.Sprite):
+    def _imageAspectRatio(fish: simpleGE.Sprite) -> tuple:
         imageRect = fish.image.get_rect()
         nearCorner = imageRect.topleft
         farCorner = imageRect.bottomright
@@ -78,17 +78,17 @@ class ImageManip:
         else:
             return (1, 1)
 
-    def _subtractTuples(tuple1: tuple, tuple2: tuple):
+    def _subtractTuples(tuple1: tuple, tuple2: tuple) -> tuple:
         return (tuple1[0] - tuple2[0], tuple1[1] - tuple2[1])
 
-    def flipFish(fish: simpleGE.Sprite):
+    def flipFish(fish: simpleGE.Sprite) -> None:
         if not fish.flipped:
             ImageManip._flipImage(fish)
 
-    def unflipFish(fish: simpleGE.Sprite):
+    def unflipFish(fish: simpleGE.Sprite) -> None:
         if fish.flipped:
             ImageManip._flipImage(fish)
 
-    def _flipImage(sprite: simpleGE.Sprite):
+    def _flipImage(sprite: simpleGE.Sprite) -> None:
         sprite.image = pygame.transform.flip(sprite.image, True, False)
         sprite.flipped = not sprite.flipped

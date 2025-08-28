@@ -9,7 +9,7 @@ class GameScene(simpleGE.Scene):
     FISH_CONTINUE_TRESHOLD = 100
     PLAYER_GROWTH_FACTOR = 0.05
 
-    def __init__(self, size=...):
+    def __init__(self, size=...) -> None:
         super().__init__(size)
 
         self.setCaption("Eat smaller fish to get bigger!")
@@ -22,18 +22,18 @@ class GameScene(simpleGE.Scene):
         )
 
         self.fishes = []
-        
+
         for _ in range(GameScene.NUM_OF_NPC_FISHES):
             self.fishes.append(Fish(self))
 
         self.sprites = [self.player, self.fishes]
 
-    def process(self):
+    def process(self) -> None:
         for fish in self.fishes:
             self.runPlayerCollisionCheck(fish)
             self.resetIfNeeded(fish)
 
-    def runPlayerCollisionCheck(self, fish: Fish):
+    def runPlayerCollisionCheck(self, fish: Fish) -> None:
         if fish.collidesWith(self.player) and not self.player.isInvincible():
 
             # print(f"Collision! [{self.player.name}: {self.player.power}] [{fish.name}: {fish.power}]")
@@ -61,7 +61,7 @@ class GameScene(simpleGE.Scene):
         return passedRightEdge or passedLeftEdge
 
 
-def main():
+def main() -> None:
     resolution = (960, 540)
 
     game = GameScene(resolution)
