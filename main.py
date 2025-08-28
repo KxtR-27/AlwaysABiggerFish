@@ -22,7 +22,7 @@ class GameScene(simpleGE.Scene):
         )
 
         self.fishes = []
-
+        
         for _ in range(GameScene.NUM_OF_NPC_FISHES):
             self.fishes.append(Fish(self))
 
