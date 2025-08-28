@@ -2,7 +2,8 @@ from fish import *
 
 class Bird(Fish):
     # Override:
-    # - applyRandomPreset()
+    # - resetIfNeeded()
+    #   -> new condition
     # - shufflePosition()
     # - swim()
 
