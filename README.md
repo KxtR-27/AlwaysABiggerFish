@@ -177,11 +177,12 @@ Asset list will be updated as assets are added to the repo.
 
 ### Extra Ideas
 1. Different fish presets have unique sounds
-2. Weight the random preset algorithm to favor bigger fish as the player's size grows
-3. Particle effects?
-4. Game Over overlay in In-game scene. Lets players view the round's details before returning to Main Menu.
-5. Joystick support
-6. Stamina mechanic? (can sprint for short periods)
+2. Fish constructor follows builder design pattern (for readability of presets)
+3. Weight the random preset algorithm to favor bigger fish as the player's size grows
+4. Particle effects?
+5. Game Over overlay in In-game scene. Lets players view the round's details before returning to Main Menu.
+6. Joystick support
+7. Stamina mechanic? (can sprint for short periods)
 
 ## Multi-State Considerations
 The game runs the Main Menu scene. 
