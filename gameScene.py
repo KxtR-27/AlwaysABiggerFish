@@ -54,9 +54,9 @@ class GameScene(simpleGE.Scene):
 
 
     def runPlayerCollisionCheck(self, animal: Fish | Bird) -> None:
-        if animal.collidesWith(self.player) and not self.player.isInvincible():
+        if animal.collidesWith(self.player):
 
-            if animal.power > self.player.power:
+            if animal.power > self.player.power and not self.player.isInvincible():
                 exit(0)
             else:
                 self.player.triggerIFrames()
