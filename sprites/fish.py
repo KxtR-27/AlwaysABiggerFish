@@ -10,14 +10,14 @@ class Fish(GameSprite):
         self.applyRandomPreset()
 
 
-    def needsReset(self):
+    def needsReset(self) -> bool:
         passedRightEdge = self.movingRight and self.x > self.screenWidth + Fish.FISH_CONTINUE_THRESHOLD
         passedLeftEdge = not self.movingRight and self.x < -Fish.FISH_CONTINUE_THRESHOLD
 
         return passedRightEdge or passedLeftEdge
 
 
-    def applyRandomPreset(self):
+    def applyRandomPreset(self) -> None:
         self.applyPreset(FishPresets.randomPreset())
 
 

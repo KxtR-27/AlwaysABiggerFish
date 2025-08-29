@@ -1,10 +1,12 @@
 import simpleGE, random
 
+from abc import ABCMeta, abstractmethod
+
 from sprites.presets import *
 from utils import ImageManip
 
 
-class GameSprite(simpleGE.Sprite):
+class GameSprite(simpleGE.Sprite, metaclass=ABCMeta):
     # how far off-screen can fish continue before resetting
     FISH_CONTINUE_THRESHOLD = 200
 
@@ -37,12 +39,11 @@ class GameSprite(simpleGE.Sprite):
         self.applyRandomPreset()
         self.shufflePosition()
 
-    def needsReset(self) -> bool:
-        pass
+    @abstractmethod
+    def needsReset(self) -> bool: ...
 
-
-    def applyRandomPreset(self) -> None:
-        pass
+    @abstractmethod
+    def applyRandomPreset(self) -> None: ...
 
     def applyPreset(self, preset: Preset) -> None:
         self.name = preset.name
@@ -56,9 +57,8 @@ class GameSprite(simpleGE.Sprite):
         ImageManip.normalizeSizeToPower(self)
         ImageManip.flipIfNeeded(self)
 
+    @abstractmethod
+    def shufflePosition(self) -> None: ...
 
-    def shufflePosition(self) -> None:
-        pass
-
-    def swim(self) -> None:
-        pass
+    @abstractmethod
+    def swim(self) -> None: ...

@@ -1,4 +1,4 @@
-import simpleGE, random
+import random
 from enum import Enum
 
 
@@ -11,11 +11,10 @@ class Preset:
         self.imagePath = imagePath
 
 
-class FishPresets(Enum):
-    PLAYER = Preset(
-        "Player", speedMin=4, speedMax=4, power=30, imagePath="assets/player.png"
-    )
+PLAYER_PRESET = Preset("Player", speedMin=4, speedMax=4, power=30, imagePath="assets/player.png")
 
+
+class FishPresets(Enum):
     BUTTERFLY = Preset(
         "Butterfly Fish", speedMin=2, speedMax=5, power=25, imagePath="assets/fish_butterfly.png",
     )
@@ -24,9 +23,4 @@ class FishPresets(Enum):
     )
     
     def randomPreset() -> Preset:
-        choice = random.choice(list(FishPresets))
-
-        if choice is not FishPresets.PLAYER:
-            return choice.value
-        else:
-            return FishPresets.randomPreset()
+        return random.choice(list(FishPresets)).value
