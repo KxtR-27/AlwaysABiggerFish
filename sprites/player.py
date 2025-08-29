@@ -1,13 +1,13 @@
-from sprites.fish import Fish
-from sprites.presets import FishPresets
+from sprites import presets 
+from gameSprite import GameSprite
 from utils import *
 
 
-class Player(Fish):
+class Player(GameSprite):
     def __init__(self, scene) -> None:
         super().__init__(scene)
 
-        self.applyPreset(FishPresets.PLAYER.value)
+        self.applyPreset(presets.PLAYER_PRESET)
         self.DRAG_FACTOR = 0.9
 
         self.MAX_IFRAMES = 5
@@ -35,6 +35,19 @@ class Player(Fish):
         if self.remainingIFrames > 0:
             self.remainingIFrames -= 1
             # print(f"remaining iframes: {self.remainingIFrames}/{self.MAX_IFRAMES}")
+
+
+    def needsReset(self):
+        return False
+    
+    def applyRandomPreset(self):
+        pass
+
+    def shufflePosition(self):
+        pass
+
+    def swim(self):
+        pass
 
 
     def growBy(self, addend: int) -> None:
