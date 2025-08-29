@@ -21,9 +21,6 @@ class Bird(GameSprite):
     def shufflePosition(self) -> None:
         self.x = random.randint(0, self.screenWidth)
         self.y = -GameSprite.BOUND_CONTINUE_THRESHOLD + 1
-
-        xCenter = self.screenWidth / 2
-        self.movingRight = True if self.x <= xCenter else False
         
         self.setAngle(-90)
 

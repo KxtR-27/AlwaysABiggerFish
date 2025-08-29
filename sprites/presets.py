@@ -37,7 +37,6 @@ class FishPresets(Enum):
     def randomPreset() -> Preset:
         return random.choice(list(FishPresets)).value
 
-
 class BirdPresets(Enum):
     SEAGULL = Preset(
         name="Seagull",
@@ -56,3 +55,29 @@ class BirdPresets(Enum):
 
     def randomPreset() -> Preset:
         return random.choice(list(BirdPresets)).value
+
+class CrustaceanPresets(Enum):
+    CRAB = Preset(
+        name="Crab",
+        speedMin=3,
+        speedMax=9,
+        power=70,
+        imagePath="assets/crustacean_crab.png"
+    )
+    LOBSTER = Preset(
+        name="Lobster",
+        speedMin=1,
+        speedMax=3,
+        power=90,
+        imagePath="assets/crustacean_lobster.png"
+    )
+    SEA_URCHIN = Preset(
+        name="Sea Urchin",
+        speedMin=3,
+        speedMax=7,
+        power=40,
+        imagePath="assets/crustacean_sea-urchin.png"
+    )
+
+    def randomPreset() -> Preset:
+        return random.choice(list(CrustaceanPresets)).value
