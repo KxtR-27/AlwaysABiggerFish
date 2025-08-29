@@ -1,11 +1,7 @@
 from sprites import presets 
 from gameSprite import GameSprite
-from sprites import presets 
-from gameSprite import GameSprite
 from utils import *
 
-
-class Player(GameSprite):
 class Player(GameSprite):
     def __init__(self, scene) -> None:
         super().__init__(scene)
