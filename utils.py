@@ -81,11 +81,16 @@ class ImageManip:
     def _subtractTuples(tuple1: tuple, tuple2: tuple) -> tuple:
         return (tuple1[0] - tuple2[0], tuple1[1] - tuple2[1])
 
-    def flipFish(fish: simpleGE.Sprite) -> None:
+
+    def flipIfNeeded(fish: simpleGE.Sprite):
+        if fish.movingRight: ImageManip._unflipFish(fish)
+        else: ImageManip._flipFish(fish)
+
+    def _flipFish(fish: simpleGE.Sprite) -> None:
         if not fish.flipped:
             ImageManip._flipImage(fish)
 
-    def unflipFish(fish: simpleGE.Sprite) -> None:
+    def _unflipFish(fish: simpleGE.Sprite) -> None:
         if fish.flipped:
             ImageManip._flipImage(fish)
 

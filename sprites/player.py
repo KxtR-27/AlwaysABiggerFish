@@ -1,5 +1,5 @@
-from fish import Fish
-from presets import FishPresets
+from sprites.fish import Fish
+from sprites.presets import FishPresets
 from utils import *
 
 
@@ -20,10 +20,10 @@ class Player(Fish):
 
         if InputActions.isActionPressed(self, InputActions.MOVE_LEFT):
             self.dx = -self.swimSpeed
-            ImageManip.flipFish(self)
+            ImageManip._flipFish(self)
         if InputActions.isActionPressed(self, InputActions.MOVE_RIGHT):
             self.dx = self.swimSpeed
-            ImageManip.unflipFish(self)
+            ImageManip._unflipFish(self)
         if InputActions.isActionPressed(self, InputActions.MOVE_UP):
             self.dy = -self.swimSpeed
         if InputActions.isActionPressed(self, InputActions.MOVE_DOWN):

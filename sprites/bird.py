@@ -1,4 +1,4 @@
-from fish import *
+from sprites.fish import *
 
 class Bird(Fish):
     # Override:
