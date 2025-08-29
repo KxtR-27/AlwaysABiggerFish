@@ -9,17 +9,17 @@ class Fish(GameSprite):
         super().__init__(scene)
         self.applyRandomPreset()
 
-
     def needsReset(self) -> bool:
-        passedRightEdge = self.movingRight and self.x > self.screenWidth + Fish.FISH_CONTINUE_THRESHOLD
-        passedLeftEdge = not self.movingRight and self.x < -Fish.FISH_CONTINUE_THRESHOLD
+        passedRightEdge = (
+            self.movingRight
+            and self.x > self.screenWidth + Fish.BOUND_CONTINUE_THRESHOLD
+        )
+        passedLeftEdge = not self.movingRight and self.x < -Fish.BOUND_CONTINUE_THRESHOLD
 
         return passedRightEdge or passedLeftEdge
 
-
     def applyRandomPreset(self) -> None:
         self.applyPreset(FishPresets.randomPreset())
-
 
     def shufflePosition(self) -> None:
         startFromLeft = random.randint(0, 1)

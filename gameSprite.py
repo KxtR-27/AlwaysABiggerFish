@@ -8,7 +8,7 @@ from utils import ImageManip
 
 class GameSprite(simpleGE.Sprite, metaclass=ABCMeta):
     # how far off-screen can fish continue before resetting
-    FISH_CONTINUE_THRESHOLD = 200
+    BOUND_CONTINUE_THRESHOLD = 200
 
     def __init__(self, scene) -> None:
         super().__init__(scene)

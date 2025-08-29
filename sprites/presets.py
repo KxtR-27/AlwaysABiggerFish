@@ -3,7 +3,9 @@ from enum import Enum
 
 
 class Preset:
-    def __init__(self, name: str, speedMin: float, speedMax: float, power: float, imagePath: str) -> None:
+    def __init__(
+        self, name: str, speedMin: float, speedMax: float, power: float, imagePath: str
+    ) -> None:
         self.name = name
         self.speedMin = speedMin
         self.speedMax = speedMax
@@ -11,16 +13,46 @@ class Preset:
         self.imagePath = imagePath
 
 
-PLAYER_PRESET = Preset("Player", speedMin=4, speedMax=4, power=30, imagePath="assets/player.png")
+PLAYER_PRESET = Preset(
+    name="Player", speedMin=4, speedMax=4, power=30, imagePath="assets/player.png"
+)
 
 
 class FishPresets(Enum):
     BUTTERFLY = Preset(
-        "Butterfly Fish", speedMin=2, speedMax=5, power=25, imagePath="assets/fish_butterfly.png",
+        name="Butterfly Fish",
+        speedMin=2,
+        speedMax=5,
+        power=25,
+        imagePath="assets/fish_butterfly.png",
     )
     SHARK = Preset(
-        "Shark", speedMin=4, speedMax=8, power=100, imagePath="assets/fish_shark.png"
+        name="Shark", 
+        speedMin=4, 
+        speedMax=8, 
+        power=100, 
+        imagePath="assets/fish_shark.png"
     )
-    
+
     def randomPreset() -> Preset:
         return random.choice(list(FishPresets)).value
+
+
+class BirdPresets(Enum):
+    SEAGULL = Preset(
+        name="Seagull",
+        speedMin=3,
+        speedMax=6,
+        power=50,
+        imagePath="assets/bird_seagull.png"
+    )
+    PELICAN = Preset(
+        name="Pelican",
+        speedMin=2,
+        speedMax=4,
+        power=60,
+        imagePath="assets/bird_pelican.png"
+    )
+
+    def randomPreset() -> Preset:
+        return random.choice(list(BirdPresets)).value

@@ -26,14 +26,14 @@ When the round is over--either by running out of time or by getting eaten--retur
 
 ## List of Assets: Sprites
 
-| Sprite Class         | Visual Elements                                                                                                                                                   | Animation Details                                                                                         | Lifespan                                                                | Movement                                                                                                                                              | Boundary Behavior | Collision Behavior                                                                                                                                                            |
-| -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| GameSprite           | A superclass to hold code that is consistent across every subclass.                                                                                               | Flip along y-axis when moving right-to-left                                                               | N/A                                                                     | N/A -- the subclass must define its own movement.                                                                                                     | CONTINUE          | None. Currently, the GameScene only enables collisions between Fish and the Player                                                                                            |
-| GameSprite > Fish    | The "type" of fish is chosen randomly from a list of presets. Each "type" has a corresponding size, speed range, and image.                                       | Inherit                                                                                                   | Until time runs out, or when eaten                                      | BasicFish move in a horizontal line from one edge of the screen to another. They spawn at a random y-level. Speed range differs based on fish "type." | Inherit           | Inherit                                                                                                                                                                       |
-| Fish > Player Sprite | A goldfish, will stand out. Harbors similar behavior to fish.                                                                                                     | Inherit                                                                                                   | Inherit                                                                 | WASD or arrow keys. Drifts to a stop if in motion with no keys pressed.                                                                               | Custom (Inherit)  | If collides with any fish, scene runs a to see whose size is bigger. The bigger grows and the smaller fish is deleted. If collides with any collectible, increase own size.   |
-| Bird                 | A seagull or a pelican. Have corresponding sizes.                                                                                                                 | Bird image will point in movement direction                                                               | Inherit                                                                 | Birds swoop down from the top of the screen, diving into the water before returning upward beyond the top edge.                                       | Inherit           | Inherit                                                                                                                                                                       |
-| Crustacean           | A lobster, sea urchin, or crab. Corresponding sizes.                                                                                                              | When moving, rotates a little, ccw, before switching to cw, then ccw, then... imitates a sort of scuttle. | Inherit                                                                 | Scuttles up from bottom edge, waits, may or may not move sideways. Eventually returns downward beyond the bottom edge.                                | Inherit           | Inherit                                                                                                                                                                       |
-| Collectible          | A conch, clamshell, or a nautilus shell.                                                                                                                          | Slowly rotates in a randomly chosen direction                                                             | Time needed to cross a boundary, or get collected. Despawns off-screen. | Slowly moves downward from the top edge of the screen to the bottom edge.                                                                             | Inherit           | If collides with player, player's size increases by a random value, no matter how small or big the player is. Despawns on contact.                                            |
+| Sprite Class            | Visual Elements                                                                                                             | Animation Details                                                                                         | Lifespan                                                                | Movement                                                                                                                                         | Boundary Behavior | Collision Behavior                                                                                                                                                          |
+| ----------------------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| GameSprite              | A superclass to hold code that is consistent across every subclass.                                                         | Flip along y-axis when moving right-to-left                                                               | N/A                                                                     | N/A -- the subclass must define its own movement.                                                                                                | CONTINUE          | None. Currently, the GameScene only enables collisions between Fish and the Player                                                                                          |
+| GameSprite > Fish       | The "type" of fish is chosen randomly from a list of presets. Each "type" has a corresponding size, speed range, and image. | Inherit                                                                                                   | Until time runs out, or when eaten                                      | Fish move in a horizontal line from one edge of the screen to another. They spawn at a random y-level. Speed range differs based on fish "type." | Inherit           | Inherit                                                                                                                                                                     |
+| GameSprite > Player     | A goldfish, will stand out. Harbors similar behavior to fish.                                                               | Inherit                                                                                                   | Inherit                                                                 | WASD or arrow keys. Drifts to a stop if in motion with no keys pressed.                                                                          | Custom (Inherit)  | If collides with any fish, scene runs a to see whose size is bigger. The bigger grows and the smaller fish is deleted. If collides with any collectible, increase own size. |
+| GameSprite > Bird       | A seagull or a pelican. Have corresponding sizes.                                                                           | Bird image will point in movement direction                                                               | Inherit                                                                 | Birds swoop down from the top of the screen, diving into the water before returning upward beyond the top edge.                                  | Inherit           | Inherit                                                                                                                                                                     |
+| GameSprite > Crustacean | A lobster, sea urchin, or crab. Corresponding sizes.                                                                        | When moving, rotates a little, ccw, before switching to cw, then ccw, then... imitates a sort of scuttle. | Inherit                                                                 | Scuttles up from bottom edge, waits, may or may not move sideways. Eventually returns downward beyond the bottom edge.                           | Inherit           | Inherit                                                                                                                                                                     |
+| Collectible             | A conch, clamshell, or a nautilus shell.                                                                                    | Slowly rotates in a randomly chosen direction                                                             | Time needed to cross a boundary, or get collected. Despawns off-screen. | Slowly moves downward from the top edge of the screen to the bottom edge.                                                                        | Inherit           | If collides with player, player's size increases by a random value, no matter how small or big the player is. Despawns on contact.                                          |
 
 ## GUI Labels
 
@@ -77,13 +77,15 @@ Asset list will be updated as assets are added to the repo.
 -   Background image is from [this 2D Background pack](https://craftpix.net/freebies/free-underwater-world-pixel-art-backgrounds/) on Craftpix.
 -   Music TBD.
 
-| Asset                                                                         | Attribution                                                                                                                    | Usage                                       |
-| ----------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------- |
-| <img src="assets/backdrop.png" width="100"><br>`backdrop.png`                 | [Image](https://craftpix.net/freebies/free-underwater-world-pixel-art-backgrounds/) from [Craftpix.net](https://craftpix.net/) | A background image for the game scenes.     |
-| <img src="assets/fish_butterfly.png" width="40"><br>`basicfish_butterfly.png` | Icon made by [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](https://www.flaticon.com/)            | Icon used for Butterfly Fish.               |
-| <img src="assets/fish_shark.png" width="40"><br>`basicfish_shark.png`         | Icon made by [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](https://www.flaticon.com/)            | Icon used for Shark.                        |
-| <img src="assets/player.png" width="40"><br>`player.png`                      | Icon made by [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](https://www.flaticon.com/)            | Icon used for Player Sprite.                |
-| <img src="assets/placeholder.png" width="40"><br>`placeholder.png`            | Icon made by [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](https://www.flaticon.com/)            | Icon used internally for uncustomized fish. |
+| Asset                                                                    | Attribution                                                                                                                    | Usage                                       |
+| ------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------- |
+| <img src="assets/backdrop.png" width="100"><br>`backdrop.png`            | [Image](https://craftpix.net/freebies/free-underwater-world-pixel-art-backgrounds/) from [Craftpix.net](https://craftpix.net/) | A background image for the game scenes.     |
+| <img src="assets/bird_pelican.png" width="40"><br>`bird_pelican.png`     | Icon made by [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](https://www.flaticon.com/)            | Icon used for Pelican.                      |
+| <img src="assets/bird_seagull.png" width="40"><br>`bird_seagull.png`     | Icon made by [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](https://www.flaticon.com/)            | Icon used for Seagull.                      |
+| <img src="assets/fish_butterfly.png" width="40"><br>`fish_butterfly.png` | Icon made by [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](https://www.flaticon.com/)            | Icon used for Butterfly Fish.               |
+| <img src="assets/fish_shark.png" width="40"><br>`fish_shark.png`         | Icon made by [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](https://www.flaticon.com/)            | Icon used for Shark.                        |
+| <img src="assets/player.png" width="40"><br>`player.png`                 | Icon made by [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](https://www.flaticon.com/)            | Icon used for Player.                       |
+| <img src="assets/placeholder.png" width="40"><br>`placeholder.png`       | Icon made by [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](https://www.flaticon.com/)            | Icon used internally for uncustomized fish. |
 
 ## Milestones
 
@@ -91,9 +93,9 @@ Asset list will be updated as assets are added to the repo.
 
 <ol>
    <del>
-      <li>Set up the In-game scene with a backdrop and a (not yet functional) Player Sprite.</li>
+      <li>Set up the In-game scene with a backdrop and a (not yet functional) Player.</li>
       <p><li>
-         Player Sprite
+         Player
          <ol type="i">
             <li>Keyboard control</li>
             <li>Drifting motion behavior</li>
@@ -101,46 +103,45 @@ Asset list will be updated as assets are added to the repo.
          </ol>
       </li></p>
       <p><li>
-         BasicFish, and by extension, FishSprite
+         Fish
          <ol type="i">
-            <li>Create trigger for a Fish Sprite to despawn off-screen</li>
-            <li>Make BasicFish move horizontally past the edge of the screen</li>
+            <li>Create trigger for a Fish to despawn off-screen</li>
+            <li>Make Fish move horizontally past the edge of the screen</li>
             <li>Spawn at random y-levels at regular intervals with a variable speed also applied</li>
          </ol>
       </li></p>
       <p><li>
-         Fish Sprite collision logic
+         Fish collision logic
          <ol type="i">
-            <li>If player is bigger than the BasicFish, delete the BasicFish and increase player size</li>
-            <li>If BasicFish is bigger, delete Player Sprite and trigger a game over</li>
-            <li>Verify behavior with BasicFish</li>
+            <li>If Player is bigger than the Fish, "delete" (reset) the Fish and increase player size</li>
+            <li>If Fish is bigger, delete Player and trigger a game over</li>
+            <li>Verify behavior with Fish</li>
          </ol>
       </li></p>
       <p><li>
-         Add "presets" for BasicFish
+         Add "presets" for Fish
          <ol type="i">
             <li>An image, a speed range, and a size.</li>
             <li>Examples include a pufferfish, an orca, an angelfish, etc.</li>
-            <li>Modify BasicFish spawning logic to randomly choose a preset</li>
+            <li>Modify Fish spawning logic to randomly choose a preset</li>
             <li>Recycle "removed" fishes via respawning/resetting</li>
+         </ol>
+      </li></p>
+      <p><li>
+         Create Bird presets mentioned in document
+         <ol type="i">
+            <li>Make the Bird come in from the top, swoop into the water, and continue swoop up off the edge.</li>
+            <li>Collision logic is handled by GameScene</li>
+            <li>Add random spawning mechanic</li>
          </ol>
       </li></p>
    </del>
    <p><li>
-      Create Bird presets mentioned in document
-      <ol type="i">
-         <del><li>Extend Fish Sprite to use custom movement logic</li></del>
-         <li>Make the Bird come in from the top, swoop into the water, and continue swoop up off the edge.</li>
-         <li>Collision logic is handled by Fish Sprite</li>
-         <li>Add random spawning mechanic</li>
-      </ol>
-   </li></p>
-   <p><li>
       Create Crustacean presets mentioned in document
       <ol type="i">
-         <li>Extend Fish Sprite to use custom movement logic</li>
+         <li>Extend GameSprite to use custom movement logic</li>
          <li>Make the crustacean scuttle in from the bottom edge, perhaps move sideways a short distance several times, and then scuttle back off the bottom edge.</li>
-         <li>Collision logic is handled by Fish Sprite</li>
+         <li>Collision logic is handled by GameScene</li>
          <li>Add random spawning mechanic</li>
       </ol>
    </li></p>
@@ -167,10 +168,10 @@ Asset list will be updated as assets are added to the repo.
       Animations
       <ol type="i">
          <li>Make Player Sprite look in movement direction, flipping the image horizontally when the fish would look upside down</li>
-         <li>
+         <del><li>
             Make Birds point in movement direction. 
-            Using `moveAngle()` and `forward()` might be helpful here.
-         </li>
+            Using <code>moveAngle()</code> and <code>forward()</code> might be helpful here.
+         </li></del>
          <li>Make collectibles slowly spin</li>
          <li>Make crustaceans rotate a little, back and forth, for a scuttling effect.</li>
       </ol>
@@ -190,14 +191,15 @@ Asset list will be updated as assets are added to the repo.
 
 ### Extra Ideas
 
-1. Different fish presets have unique sounds
-2. Fish constructor follows builder design pattern (for readability of presets)
-3. Intuitive logging system
-4. "Diet" hitboxes (more accurate)
-5. Weight the random preset algorithm to favor bigger fish as the player's size grows
-6. Ambient/particle effects?
-7. Game Over overlay in In-game scene. Lets players view the round's details before returning to Main Menu.
-8. Joystick support
+1. More fish presets
+2. Different fish presets have unique sounds
+3. Fish constructor follows builder design pattern (for readability of presets)
+4. Intuitive logging system
+5. "Diet" hitboxes (more accurate)
+6. Weight the random preset algorithm to favor bigger fish as the player's size grows
+7. Ambient/particle effects?
+8. Game Over overlay in In-game scene. Lets players view the round's details before returning to Main Menu.
+9. Joystick support
 
 ## Multi-State Considerations
 
