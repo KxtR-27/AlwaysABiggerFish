@@ -81,3 +81,43 @@ class CrustaceanPresets(Enum):
 
     def randomPreset() -> Preset:
         return random.choice(list(CrustaceanPresets)).value
+
+
+class PresetCollectible(Preset):
+    def __init__(self, name, speedMin, speedMax, imagePath, powerGain):
+        super().__init__(name, speedMin, speedMax, 40, imagePath)
+
+        self.powerGain = powerGain
+
+class CollectiblePresets(Enum):
+    CLAM = PresetCollectible(
+        name="Clam",
+        speedMin=1,
+        speedMax=4,
+        imagePath="assets/collectible_clam.png",
+        powerGain=5
+    )
+    CONCH = PresetCollectible(
+        name="Conch Shell",
+        speedMin=1,
+        speedMax=4,
+        imagePath="assets/collectible_conch.png",
+        powerGain=8
+    )
+    NAUTLUS = PresetCollectible(
+        name="Nautilus Shell",
+        speedMin=1,
+        speedMax=4,
+        imagePath="assets/collectible_nautilus.png",
+        powerGain=10
+    )
+    SEASHELL = PresetCollectible(
+        name="Seashell",
+        speedMin=1,
+        speedMax=4,
+        imagePath="assets/collectible_seashell.png",
+        powerGain=12
+    )
+
+    def randomPreset() -> PresetCollectible:
+        return random.choice(list(CollectiblePresets)).value

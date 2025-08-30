@@ -18,7 +18,6 @@ class GameSprite(simpleGE.Sprite, metaclass=ABCMeta):
         self.name = "Placeholder"
         self.swimSpeed = 0
         self.power = 0
-        self.setImage("assets/placeholder.png")
         self.setSize(50, 50)
 
         self.movingRight = True

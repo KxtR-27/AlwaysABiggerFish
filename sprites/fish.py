@@ -7,7 +7,6 @@ from sprites.presets import *
 class Fish(GameSprite):
     def __init__(self, scene):
         super().__init__(scene)
-        self.applyRandomPreset()
 
     def needsReset(self) -> bool:
         passedRightEdge = (

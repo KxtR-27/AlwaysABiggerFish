@@ -18,7 +18,6 @@ class Crustacean(GameSprite):
 
     def __init__(self, scene):
         super().__init__(scene)
-        self.applyRandomPreset()
 
         self.state = None
         self.ascendingYTarget = 0

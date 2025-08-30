@@ -10,7 +10,6 @@ class Bird(GameSprite):
 
     def __init__(self, scene):
         super().__init__(scene)
-        self.applyRandomPreset()
 
     def needsReset(self) -> bool:
         return self.y < -GameSprite.BOUND_CONTINUE_THRESHOLD

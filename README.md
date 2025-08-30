@@ -83,13 +83,16 @@ Asset list will be updated as assets are added to the repo.
 | <img src="assets/backdrop.png" width="100"><br>`backdrop.png`                          | [Image](https://craftpix.net/freebies/free-underwater-world-pixel-art-backgrounds/) from [Craftpix.net](https://craftpix.net/)                      | A background image for the game scenes.                                                                                    |
 | <img src="assets/bird_pelican.png" width="40"><br>`bird_pelican.png`                   | Icon made by [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](https://www.flaticon.com/)                                 | Icon used for Pelican.                                                                                                     |
 | <img src="assets/bird_seagull.png" width="40"><br>`bird_seagull.png`                   | Icon made by [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](https://www.flaticon.com/)                                 | Icon used for Seagull.                                                                                                     |
+| <img src="assets/collectible_clam.png" width="40"><br>`collectible_clam.png`           | Icon made by [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](https://www.flaticon.com/)                                 | Icon used for Clam.                                                                                                        |
+| <img src="assets/collectible_conch.png" width="40"><br>`collectible_conch.png`         | Icon made by [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](https://www.flaticon.com/)                                 | Icon used for Conch.                                                                                                       |
+| <img src="assets/collectible_nautilus.png" width="40"><br>`collectible_nautilus.png`   | Icon made by [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](https://www.flaticon.com/)                                 | Icon used for Nautilus.                                                                                                    |
+| <img src="assets/collectible_seashell.png" width="40"><br>`collectible_seashell.png`   | Icon made by [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](https://www.flaticon.com/)                                 | Icon used for Seashell.                                                                                                    |
 | <img src="assets/crustacean_crab.png" width="40"><br>`crustacean_crab.png`             | Icon made by [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](https://www.flaticon.com/)                                 | Icon used for Crab.                                                                                                        |
 | <img src="assets/crustacean_lobster.png" width="40"><br>`crustacean_lobster.png`       | Icon made by [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](https://www.flaticon.com/)                                 | Icon used for Lobster.                                                                                                     |
 | <img src="assets/crustacean_sea-urchin.png" width="40"><br>`crustacean_sea-urchin.png` | Icon made by [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](https://www.flaticon.com/)                                 | Icon used for Sea Urchin.<br> <sub style="color:LightSteelBlue"><i>Also, I know a sea urchin isn't a crustacean.</i></sub> |
 | <img src="assets/fish_butterfly.png" width="40"><br>`fish_butterfly.png`               | Icon made by [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](https://www.flaticon.com/)                                 | Icon used for Butterfly Fish.                                                                                              |
 | <img src="assets/fish_shark.png" width="40"><br>`fish_shark.png`                       | Icon made by [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](https://www.flaticon.com/)                                 | Icon used for Shark.                                                                                                       |
 | <img src="assets/player.png" width="40"><br>`player.png`                               | Icon made by [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](https://www.flaticon.com/)                                 | Icon used for Player.                                                                                                      |
-| <img src="assets/placeholder.png" width="40"><br>`placeholder.png`                     | Icon made by [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](https://www.flaticon.com/)                                 | Icon used internally for uncustomized fish.                                                                                |
 
 ## Milestones
 
@@ -148,15 +151,15 @@ Asset list will be updated as assets are added to the repo.
             <li>Add random spawning mechanic</li>
          </ol>
       </li></p>
+      <p><li>
+         Create Collectibles mentioned in document
+         <ol type="i">
+            <li>Quite simply, move down from the top edge and despawn past the bottom edge</li>
+            <li>Implement collision logic to increase player size</li>
+            <li>Make them spawn rarely and at random x-positions</li>
+         </ol>
+      </li></p>
    </del>
-   <p><li>
-      Create Collectibles mentioned in document
-      <ol type="i">
-         <li>Quite simply, move down from the top edge and despawn past the bottom edge</li>
-         <li>Implement collision logic to increase player size</li>
-         <li>Make them spawn rarely and at random x-positions</li>
-      </ol>
-   </li></p>
    <p><li>Add size and timer labels, complete with timer that exits the program when depleted</li></p>
    <p><li>Add size increase indicators</li></p>
    <p><li>
@@ -171,12 +174,11 @@ Asset list will be updated as assets are added to the repo.
    <p><li>
       Animations
       <ol type="i">
-         <li>Make Player Sprite look in movement direction, flipping the image horizontally when the fish would look upside down</li>
-         <del><li>
-            Make Birds point in movement direction. 
-            Using <code>moveAngle()</code> and <code>forward()</code> might be helpful here.
-         </li></del>
-         <li>Make collectibles slowly spin</li>
+         <del>
+            <li>Make Player Sprite look in movement direction, flipping the image horizontally when the fish would look upside down</li>
+            <li>Make Birds point in movement direction. </li>
+            <li>Make collectibles slowly spin</li>
+         </del>
          <li>Make crustaceans rotate a little, back and forth, for a scuttling effect.</li>
       </ol>
    </li></p>
