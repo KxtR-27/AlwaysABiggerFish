@@ -14,7 +14,7 @@ class Preset:
 
 
 PLAYER_PRESET = Preset(
-    name="Player", speedMin=4, speedMax=4, power=30, imagePath="assets/player.png"
+    name="Player", speedMin=4, speedMax=4, power=40, imagePath="assets/player.png"
 )
 
 

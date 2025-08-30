@@ -10,8 +10,6 @@ class GameScene(simpleGE.Scene):
     NUM_OF_BIRDS = 2
     PLAYER_GROWTH_FACTOR = 0.05
 
-    CHEAT_PLAYER_GROWTH = 40
-
     def __init__(self, size=...) -> None:
         super().__init__(size)
 
@@ -24,7 +22,6 @@ class GameScene(simpleGE.Scene):
             self.player.screenWidth / 2,
             self.player.screenHeight / 2,
         )
-        self.player.growBy(GameScene.CHEAT_PLAYER_GROWTH)
 
         self.fishes = []
         self.populateFishes()

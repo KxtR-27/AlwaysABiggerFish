@@ -8,7 +8,6 @@ class Player(GameSprite):
         super().__init__(scene)
 
         self.applyPreset(presets.PLAYER_PRESET)
-        self.applyPreset(presets.PLAYER_PRESET)
         self.DRAG_FACTOR = 0.9
 
         self.MAX_IFRAMES = 5
