@@ -8,7 +8,7 @@ If you have access, that is.
 
 **This program requires the user to have `pygame` already installed.**
 
-###### _If you're having trouble installing pygame via with Python 3.12 or later, use Python 3.11 to `pip install pygame`._
+###### _If you're having trouble installing `pygame` via <kbd>pip</kbd> with Python 3.12 or later, use Python 3.11 to `pip install pygame`._
 
 ## Overview
 
@@ -139,16 +139,16 @@ Asset list will be updated as assets are added to the repo.
             <li>Add random spawning mechanic</li>
          </ol>
       </li></p>
+      <p><li>
+         Create Crustacean presets mentioned in document
+         <ol type="i">
+            <li>Extend GameSprite to use custom movement logic</li>
+            <li>Make the crustacean scuttle in from the bottom edge, perhaps move sideways a short distance several times, and then scuttle back off the bottom edge.</li>
+            <li>Collision logic is handled by GameScene</li>
+            <li>Add random spawning mechanic</li>
+         </ol>
+      </li></p>
    </del>
-   <p><li>
-      Create Crustacean presets mentioned in document
-      <ol type="i">
-         <li>Extend GameSprite to use custom movement logic</li>
-         <li>Make the crustacean scuttle in from the bottom edge, perhaps move sideways a short distance several times, and then scuttle back off the bottom edge.</li>
-         <li>Collision logic is handled by GameScene</li>
-         <li>Add random spawning mechanic</li>
-      </ol>
-   </li></p>
    <p><li>
       Create Collectibles mentioned in document
       <ol type="i">

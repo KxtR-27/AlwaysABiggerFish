@@ -1,13 +1,16 @@
 import simpleGE
 
+from sprites.player import Player
+
 from sprites.fish import Fish
 from sprites.bird import Bird
-from sprites.player import Player
+from sprites.crustacean import Crustacean
 
 
 class GameScene(simpleGE.Scene):
     NUM_OF_FISHES = 10
     NUM_OF_BIRDS = 2
+    NUM_OF_CRUSTACEANS = 3
     PLAYER_GROWTH_FACTOR = 0.05
 
     def __init__(self, size=...) -> None:
@@ -27,11 +30,14 @@ class GameScene(simpleGE.Scene):
         self.populateFishes()
         self.birds = []
         self.populateBirds()
+        self.crustaceans = []
+        self.populateCrustaceans()
 
         self.sprites = [
             self.player, 
             self.fishes,
-            self.birds
+            self.birds,
+            self.crustaceans
         ]
 
     def process(self) -> None:
@@ -39,6 +45,8 @@ class GameScene(simpleGE.Scene):
             self.runPlayerCollisionCheck(fish)
         for bird in self.birds:
             self.runPlayerCollisionCheck(bird)
+        for crustacean in self.crustaceans:
+            self.runPlayerCollisionCheck(crustacean)
     
 
     def populateFishes(self) -> None:
@@ -48,6 +56,10 @@ class GameScene(simpleGE.Scene):
     def populateBirds(self) -> None:
         for _ in range (GameScene.NUM_OF_BIRDS):
             self.birds.append(Bird(self))
+    
+    def populateCrustaceans(self) -> None:
+        for _ in range (GameScene.NUM_OF_CRUSTACEANS):
+            self.crustaceans.append(Crustacean(self))
 
 
     def runPlayerCollisionCheck(self, animal: Fish | Bird) -> None:

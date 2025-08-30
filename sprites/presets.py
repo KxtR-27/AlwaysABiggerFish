@@ -14,7 +14,7 @@ class Preset:
 
 
 PLAYER_PRESET = Preset(
-    name="Player", speedMin=4, speedMax=4, power=40, imagePath="assets/player.png"
+    name="Player", speedMin=4, speedMax=4, power=30, imagePath="assets/player.png"
 )
 
 
@@ -60,21 +60,21 @@ class CrustaceanPresets(Enum):
     CRAB = Preset(
         name="Crab",
         speedMin=3,
-        speedMax=9,
-        power=70,
+        speedMax=6,
+        power=50,
         imagePath="assets/crustacean_crab.png"
     )
     LOBSTER = Preset(
         name="Lobster",
-        speedMin=1,
-        speedMax=3,
-        power=90,
+        speedMin=2,
+        speedMax=5,
+        power=70,
         imagePath="assets/crustacean_lobster.png"
     )
     SEA_URCHIN = Preset(
         name="Sea Urchin",
-        speedMin=3,
-        speedMax=7,
+        speedMin=2,
+        speedMax=5,
         power=40,
         imagePath="assets/crustacean_sea-urchin.png"
     )
