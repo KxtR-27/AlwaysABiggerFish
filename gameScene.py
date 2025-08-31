@@ -1,32 +1,16 @@
 import simpleGE
 
 from gameSprite import GameSprite
+
 from sprites.player import Player
 from sprites.fish import Fish
 from sprites.bird import Bird
 from sprites.crustacean import Crustacean
 from sprites.collectible import Collectible
 
-
-class PowerLabel(simpleGE.Label):
-    def __init__(self):
-        super().__init__()
-
-        self.text = "Power: ???"
-        self.center = (300, 50)
-
-        self.fgColor = "black"
-        self.clearBack = True
-
-class TimerLabel(simpleGE.Label):
-    def __init__(self):
-        super().__init__()
-
-        self.text = "Time Left: ???"
-        self.center = (560, 50)
-
-        self.fgColor = "black"
-        self.clearBack = True
+from gui.game.labelPower import PowerLabel
+from gui.game.labelTimer import TimerLabel
+from gui.game.indicatorManager import IndicatorManager
 
 
 class GameScene(simpleGE.Scene):
@@ -37,7 +21,8 @@ class GameScene(simpleGE.Scene):
     NUM_OF_CRUSTACEANS = 3
     NUM_OF_COLLECTIBLES = 3
 
-    TIME_IN_SECONDS = 30
+    TIME_IN_SECONDS = 60
+    INDICATOR_CAPACITY = 10
 
     def __init__(self, size=...) -> None:
         super().__init__(size)
@@ -66,6 +51,7 @@ class GameScene(simpleGE.Scene):
 
         self.sprites = [
             self.player,
+            self.player.indicatorManager.indicators,
 
             self.fishes,
             self.birds,

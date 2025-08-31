@@ -1,3 +1,4 @@
+from gui.game.indicatorManager import IndicatorManager
 from sprites import presets
 from gameSprite import GameSprite
 from utils import *
@@ -12,6 +13,8 @@ class Player(GameSprite):
 
         self.MAX_IFRAMES = 5
         self.remainingIFrames = 0
+
+        self.indicatorManager = IndicatorManager(10)
 
     def process(self) -> None:
         # drifting to a stop
@@ -36,6 +39,7 @@ class Player(GameSprite):
             self.remainingIFrames -= 1
             # print(f"remaining iframes: {self.remainingIFrames}/{self.MAX_IFRAMES}")
 
+
     def needsReset(self) -> bool:
         return False
 
@@ -48,12 +52,15 @@ class Player(GameSprite):
     def swim(self) -> None:
         pass
 
+
     def growBy(self, addend: int) -> None:
         self.setImage("assets/player.png")
         self.flipped = False
 
         self.power += addend
         ImageManip.normalizeSizeToPower(self)
+
+        self.indicatorManager.useIndicator(addend, self.position)
 
     def isInvincible(self) -> bool:
         return self.remainingIFrames > 0

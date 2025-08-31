@@ -92,6 +92,7 @@ Asset list will be updated as assets are added to the repo.
 | <img src="assets/crustacean_sea-urchin.png" width="40"><br>`crustacean_sea-urchin.png`                                                                            | Icon made by [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](https://www.flaticon.com/)                                 | Icon used for Sea Urchin.<br> <sub style="color:LightSteelBlue"><i>Also, I know a sea urchin isn't a crustacean.</i></sub> |
 | <img src="assets/fish_butterfly.png" width="40"><br>`fish_butterfly.png`                                                                                          | Icon made by [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](https://www.flaticon.com/)                                 | Icon used for Butterfly Fish.                                                                                              |
 | <img src="assets/fish_shark.png" width="40"><br>`fish_shark.png`                                                                                                  | Icon made by [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](https://www.flaticon.com/)                                 | Icon used for Shark.                                                                                                       |
+| <img src="assets/placeholder.png" width="40"><br>`placeholder.png`                                                                                                | Icon made by [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](https://www.flaticon.com/)                                 | Icon used internally for hidden sprites.                                                                                                      |
 | <img src="assets/player.png" width="40"><br>`player.png`                                                                                                          | Icon made by [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](https://www.flaticon.com/)                                 | Icon used for Player.                                                                                                      |
 
 ## Milestones
@@ -160,8 +161,8 @@ Asset list will be updated as assets are added to the repo.
          </ol>
       </li></p>
       <p><li>Add size and timer labels, complete with timer that exits the program when depleted</li></p>
+      <p><li>Add size increase indicators</li></p>
    </del>
-   <p><li>Add size increase indicators</li></p>
    <p><li>
       Create Main Menu scene
       <ol type="i">
