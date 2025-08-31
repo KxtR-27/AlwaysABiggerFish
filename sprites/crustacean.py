@@ -12,9 +12,9 @@ class Crustacean(GameSprite):
         SCUTTLING = enum.auto()
         DESCENDING = enum.auto()
     
-    CHANCE_TO_SCUTTLE = 0.05
-    CHANCE_TO_DESCEND = 0.02
-    MAX_SCUTTLE_SPEED_MULT = 1.5
+    CHANCE_TO_SCUTTLE = 0.03
+    CHANCE_TO_DESCEND = 0.01
+    MAX_SCUTTLE_SPEED_MULT = 1.2
 
     def __init__(self, scene):
         super().__init__(scene)
