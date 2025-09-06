@@ -79,6 +79,7 @@ class MenuScene(simpleGE.Scene):
         self.quitButton = QuitButton()
 
         self.nextAction = ""
+        self.buttonSound = simpleGE.Sound("assets/button.wav")
 
         self.sprites = [
             self.subtitleLabel, self.titleLabel,
@@ -89,8 +90,10 @@ class MenuScene(simpleGE.Scene):
     
     def process(self):
         if self.playButton.clicked:
+            self.buttonSound.play()
             self.nextAction = "Play"
             self.stop()
         if self.quitButton.clicked:
+            self.buttonSound.play()
             self.nextAction = "Quit"
             self.stop()

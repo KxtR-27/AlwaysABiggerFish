@@ -85,7 +85,7 @@ Asset list will be updated as assets are added to the repo.
 | <img src="assets/bird_pelican.png" width="40"><br>`bird_pelican.png`                                                                                              | Icon made by [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](https://www.flaticon.com/)                                 | Icon used for Pelican.                                                                                                     |
 | <img src="assets/bird_seagull.png" width="40"><br>`bird_seagull.png`                                                                                              | Icon made by [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](https://www.flaticon.com/)                                 | Icon used for Seagull.                                                                                                     |
 | <img src="assets/collectible_clam.png" width="40"><br>`collectible_clam.png`                                                                                      | Icon made by [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](https://www.flaticon.com/)                                 | Icon used for Clam.                                                                                                        |
-| <img src="assets/collectible_conch.png" height="40"><br>`collectible_conch.png`                                                                                    | Icon made by [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](https://www.flaticon.com/)                                 | Icon used for Conch.                                                                                                       |
+| <img src="assets/collectible_conch.png" height="40"><br>`collectible_conch.png`                                                                                   | Icon made by [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](https://www.flaticon.com/)                                 | Icon used for Conch.                                                                                                       |
 | <img src="assets/collectible_nautilus.png" width="40"><br>`collectible_nautilus.png`                                                                              | Icon made by [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](https://www.flaticon.com/)                                 | Icon used for Nautilus.                                                                                                    |
 | <img src="assets/collectible_seashell.png" width="40"><br>`collectible_seashell.png`                                                                              | Icon made by [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](https://www.flaticon.com/)                                 | Icon used for Seashell.                                                                                                    |
 | <img src="assets/crustacean_crab.png" width="40"><br>`crustacean_crab.png`                                                                                        | Icon made by [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](https://www.flaticon.com/)                                 | Icon used for Crab.                                                                                                        |
@@ -95,6 +95,11 @@ Asset list will be updated as assets are added to the repo.
 | <img src="assets/fish_shark.png" width="40"><br>`fish_shark.png`                                                                                                  | Icon made by [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](https://www.flaticon.com/)                                 | Icon used for Shark.                                                                                                       |
 | <img src="assets/placeholder.png" width="40"><br>`placeholder.png`                                                                                                | Icon made by [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](https://www.flaticon.com/)                                 | Icon used internally for hidden sprites.                                                                                   |
 | <img src="assets/player.png" width="40"><br>`player.png`                                                                                                          | Icon made by [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](https://www.flaticon.com/)                                 | Icon used for Player.                                                                                                      |
+| <img src="https://raw.githubusercontent.com/catppuccin/vscode-icons/refs/heads/main/icons/mocha/audio.svg" width="40"><br>`button.wav`                            | Made with [jsfxr](https://sfxr.me/)                                                                                                                 | Sound used for button clicks.                                                                                              |
+| <img src="https://raw.githubusercontent.com/catppuccin/vscode-icons/refs/heads/main/icons/mocha/audio.svg" width="40"><br>`collectible.wav`                            | Made with [jsfxr](https://sfxr.me/)                                                                                                                 | Sound used for picking up a shell.                                                                                              |
+| <img src="https://raw.githubusercontent.com/catppuccin/vscode-icons/refs/heads/main/icons/mocha/audio.svg" width="40"><br>`eat.wav`                            | Made with [jsfxr](https://sfxr.me/)                                                                                                                 | Sound used for player eating.                                                                                              |
+| <img src="https://raw.githubusercontent.com/catppuccin/vscode-icons/refs/heads/main/icons/mocha/audio.svg" width="40"><br>`gameover.wav`                            | Made with [jsfxr](https://sfxr.me/)                                                                                                                 | Sound used for player death.                                                                                              |
+
 
 ## Milestones
 
@@ -172,28 +177,25 @@ Asset list will be updated as assets are added to the repo.
             <li>When the in-game scene ends, return size and cause of death to the Main Menu, which updates both values if this is a new best run</li>
          </ol>
       </li></p>
-   </del>
-   <p><li>
-      Animations
-      <ol type="i">
-         <del>
+      <p><li>
+         Animations
+         <ol type="i">
             <li>Make Player Sprite look in movement direction, flipping the image horizontally when the fish would look upside down</li>
             <li>Make Birds point in movement direction. </li>
             <li>Make collectibles slowly spin</li>
-         </del>
-      </ol>
-   </li></p>
-   <p><li>
-      Sounds
-      <ol type="i">
-         <li>Eating sound</li>
-         <li>Collectible sound</li>
-         <li>Button click sound</li>
-         <li>Game over sound</li>
-         <li>Ambient sounds?</li>
-      </ol>
-   </li></p>
-   <p><li>TBD UI details</li></p>
+         </ol>
+      </li></p>
+      <p><li>
+         Sounds
+         <ol type="i">
+            <li>Eating sound</li>
+            <li>Collectible sound</li>
+            <li>Button click sound</li>
+            <li>Game over sound</li>
+            <li>Ambient sounds?</li>
+         </ol>
+      </li></p>
+   </del>
 </ol>
 
 ### Extra Ideas

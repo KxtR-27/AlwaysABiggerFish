@@ -48,6 +48,10 @@ class GameScene(simpleGE.Scene):
         self.gameTimer = simpleGE.Timer()
         self.gameTimer.totalTime = self.TIME_IN_SECONDS
 
+        self.collectibleSound = simpleGE.Sound("assets/collectible.wav")
+        self.eatSound = simpleGE.Sound("assets/eat.wav")
+        self.gameoverSound  = simpleGE.Sound("assets/gameover.wav")
+
         self.sprites = [
             self.player,
             self.player.indicatorManager.indicators,
@@ -114,12 +118,14 @@ class GameScene(simpleGE.Scene):
                 self._playerEats(animal)
 
     def _playerEats(self, sprite: GameSprite):
+        self.eatSound.play()
         self.player.triggerIFrames()
         self.player.growBy(sprite.power * GameScene.PLAYER_GROWTH_FACTOR)
         sprite.reset()
 
     def _runCollectibleCollisionCheck(self, collectible: Collectible):
         if collectible.collidesWith(self.player):
+            self.collectibleSound.play()
             self.player.triggerIFrames()
             self.player.growBy(collectible.powerGain)
             collectible.reset()
@@ -138,6 +144,7 @@ class GameScene(simpleGE.Scene):
             self.endGame()
         
     def endGame(self) -> None:
+        self.gameoverSound.play()
         print(f"Power Score: [{self.player.power}]")
         print(f"Time survived: [{self.gameTimer.getElapsedTime():.2f} seconds]")
 
