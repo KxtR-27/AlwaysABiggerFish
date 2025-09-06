@@ -10,7 +10,6 @@ from sprites.collectible import Collectible
 
 from gui.game.labelPower import PowerLabel
 from gui.game.labelTimer import TimerLabel
-from gui.game.indicatorManager import IndicatorManager
 
 
 class GameScene(simpleGE.Scene):
@@ -28,7 +27,7 @@ class GameScene(simpleGE.Scene):
         super().__init__(size)
 
         self.setCaption("Eat smaller fish to get bigger!")
-        self.setImage("assets/backdrop.png")
+        self.setImage("assets/background_game.png")
 
         self.player = Player(self)
         self.player.triggerIFrames()
@@ -61,6 +60,9 @@ class GameScene(simpleGE.Scene):
             self.powerLabel,
             self.timerLabel
         ]
+
+        self.endSize = 0
+        self.endCause = ""
     
     def populateAllSprites(self) -> None:
         self._populateFishes()
@@ -106,6 +108,7 @@ class GameScene(simpleGE.Scene):
         if animal.collidesWith(self.player):
 
             if animal.power > self.player.power and not self.player.isInvincible():
+                self.endCause = animal.name
                 self.endGame()
             else:
                 self._playerEats(animal)
@@ -128,12 +131,14 @@ class GameScene(simpleGE.Scene):
     def updateTimerLabel(self) -> None:
         self.timerLabel.text = f"Time: {self.gameTimer.getTimeLeft():.2f}"
         
+
     def closeIfTimeUp(self) -> None:
         if self.gameTimer.getTimeLeft() <= 0:
+            self.endCause = "Timer"
             self.endGame()
         
-
     def endGame(self) -> None:
         print(f"Power Score: [{self.player.power}]")
         print(f"Time survived: [{self.gameTimer.getElapsedTime():.2f} seconds]")
-        exit(0)
+
+        self.stop()

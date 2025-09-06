@@ -98,3 +98,8 @@ class ImageManip:
     def _flipImage(sprite: simpleGE.Sprite) -> None:
         sprite.image = pygame.transform.flip(sprite.image, True, False)
         sprite.flipped = not sprite.flipped
+
+
+class FontBuilder:
+    def withSize(size: int) -> pygame.font.Font:
+        return pygame.font.SysFont("", size)

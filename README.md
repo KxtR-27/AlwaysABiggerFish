@@ -80,11 +80,12 @@ Asset list will be updated as assets are added to the repo.
 | Asset                                                                                                                                                             | Attribution                                                                                                                                         | Usage                                                                                                                      |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
 | <img src="https://raw.githubusercontent.com/catppuccin/vscode-icons/refs/heads/main/icons/mocha/python.svg" width=40 style="float:left"> `simpleGE` python module | Module made by [Andy Harris](https://github.com/twopiharris) from GitHub repository [twopiharris/simpleGE](https://github.com/twopiharris/simpleGE) | `pygame` abstraction layer; required for project.                                                                          |
-| <img src="assets/backdrop.png" width="100"><br>`backdrop.png`                                                                                                     | [Image](https://craftpix.net/freebies/free-underwater-world-pixel-art-backgrounds/) from [Craftpix.net](https://craftpix.net/)                      | A background image for the game scenes.                                                                                    |
+| <img src="assets/background_game.png" width="100"><br>`background_game.png`                                                                                       | [Image](https://craftpix.net/freebies/free-underwater-world-pixel-art-backgrounds/) from [Craftpix.net](https://craftpix.net/)                      | A background image for the game scene.                                                                                     |
+| <img src="assets/background_menu.png" width="100"><br>`background_menu.png`                                                                                       | [Image](https://craftpix.net/freebies/free-underwater-world-pixel-art-backgrounds/) from [Craftpix.net](https://craftpix.net/)                      | A background image for the main menu scene.                                                                                |
 | <img src="assets/bird_pelican.png" width="40"><br>`bird_pelican.png`                                                                                              | Icon made by [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](https://www.flaticon.com/)                                 | Icon used for Pelican.                                                                                                     |
 | <img src="assets/bird_seagull.png" width="40"><br>`bird_seagull.png`                                                                                              | Icon made by [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](https://www.flaticon.com/)                                 | Icon used for Seagull.                                                                                                     |
 | <img src="assets/collectible_clam.png" width="40"><br>`collectible_clam.png`                                                                                      | Icon made by [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](https://www.flaticon.com/)                                 | Icon used for Clam.                                                                                                        |
-| <img src="assets/collectible_conch.png" width="40"><br>`collectible_conch.png`                                                                                    | Icon made by [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](https://www.flaticon.com/)                                 | Icon used for Conch.                                                                                                       |
+| <img src="assets/collectible_conch.png" height="40"><br>`collectible_conch.png`                                                                                    | Icon made by [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](https://www.flaticon.com/)                                 | Icon used for Conch.                                                                                                       |
 | <img src="assets/collectible_nautilus.png" width="40"><br>`collectible_nautilus.png`                                                                              | Icon made by [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](https://www.flaticon.com/)                                 | Icon used for Nautilus.                                                                                                    |
 | <img src="assets/collectible_seashell.png" width="40"><br>`collectible_seashell.png`                                                                              | Icon made by [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](https://www.flaticon.com/)                                 | Icon used for Seashell.                                                                                                    |
 | <img src="assets/crustacean_crab.png" width="40"><br>`crustacean_crab.png`                                                                                        | Icon made by [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](https://www.flaticon.com/)                                 | Icon used for Crab.                                                                                                        |
@@ -92,7 +93,7 @@ Asset list will be updated as assets are added to the repo.
 | <img src="assets/crustacean_sea-urchin.png" width="40"><br>`crustacean_sea-urchin.png`                                                                            | Icon made by [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](https://www.flaticon.com/)                                 | Icon used for Sea Urchin.<br> <sub style="color:LightSteelBlue"><i>Also, I know a sea urchin isn't a crustacean.</i></sub> |
 | <img src="assets/fish_butterfly.png" width="40"><br>`fish_butterfly.png`                                                                                          | Icon made by [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](https://www.flaticon.com/)                                 | Icon used for Butterfly Fish.                                                                                              |
 | <img src="assets/fish_shark.png" width="40"><br>`fish_shark.png`                                                                                                  | Icon made by [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](https://www.flaticon.com/)                                 | Icon used for Shark.                                                                                                       |
-| <img src="assets/placeholder.png" width="40"><br>`placeholder.png`                                                                                                | Icon made by [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](https://www.flaticon.com/)                                 | Icon used internally for hidden sprites.                                                                                                      |
+| <img src="assets/placeholder.png" width="40"><br>`placeholder.png`                                                                                                | Icon made by [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](https://www.flaticon.com/)                                 | Icon used internally for hidden sprites.                                                                                   |
 | <img src="assets/player.png" width="40"><br>`player.png`                                                                                                          | Icon made by [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](https://www.flaticon.com/)                                 | Icon used for Player.                                                                                                      |
 
 ## Milestones
@@ -162,16 +163,16 @@ Asset list will be updated as assets are added to the repo.
       </li></p>
       <p><li>Add size and timer labels, complete with timer that exits the program when depleted</li></p>
       <p><li>Add size increase indicators</li></p>
+      <p><li>
+         Create Main Menu scene
+         <ol type="i">
+            <li>Quit button to exit program</li>
+            <li>Start button to run the In-game scene</li>
+            <li>Best score and cause of death labels</li>
+            <li>When the in-game scene ends, return size and cause of death to the Main Menu, which updates both values if this is a new best run</li>
+         </ol>
+      </li></p>
    </del>
-   <p><li>
-      Create Main Menu scene
-      <ol type="i">
-         <li>Quit button to exit program</li>
-         <li>Start button to run the In-game scene</li>
-         <li>Best score and cause of death labels</li>
-         <li>When the in-game scene ends, return size and cause of death to the Main Menu, which updates both values if this is a new best run</li>
-      </ol>
-   </li></p>
    <p><li>
       Animations
       <ol type="i">
@@ -180,7 +181,6 @@ Asset list will be updated as assets are added to the repo.
             <li>Make Birds point in movement direction. </li>
             <li>Make collectibles slowly spin</li>
          </del>
-         <li>Make crustaceans rotate a little, back and forth, for a scuttling effect.</li>
       </ol>
    </li></p>
    <p><li>
@@ -207,6 +207,8 @@ Asset list will be updated as assets are added to the repo.
 7. Ambient/particle effects?
 8. Game Over overlay in In-game scene. Lets players view the round's details before returning to Main Menu.
 9. Joystick support
+10. Make crustaceans rotate a little, back and forth, for a scuttling effect.\*
+<h6 style="color:slategray"><i>*was previously in Milestone 12 but proved too complex</i></h6>
 
 ## Multi-State Considerations
 
